@@ -1,8 +1,8 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-// --- CORRECCIÓN AQUÍ: Añade .jsx a las rutas ---
-import Layout from './components/Layout.jsx';
+
+import Layout from "./components/Layout.jsx";
 import Home from './pages/Home.jsx';
 import Anillos from './pages/Anillos.jsx';
 import Collares from './pages/Collares.jsx';
