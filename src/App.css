@@ -1,42 +1,478 @@
-#root {
-  max-width: 1280px;
+/* src/App.css (VERSIÓN LIMPIA CONFIRMADA) */
+
+/* --- 1. ESTILOS GENERALES Y FUENTES --- */
+body {
+  background-color: #fdfaf6;
+}
+
+.App {
+  text-align: center;
+  width: 100%;
+}
+
+/* --- 2. ESTILOS DEL HEADER (BARRA DE NAVEGACIÓN) --- */
+.main-header {
+  background-color: #000;
+  padding: 15px 0;
+  color: white;
+}
+
+.header-container {
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.header-left .logo {
+  height: 80px;
+}
+
+.header-nav a {
+  color: #daa520;
+  text-decoration: none;
+  margin: 0 20px;
+  font-weight: 500;
+  font-size: 1.5rem;
+  transition: color 0.3s ease;
+}
+
+.header-nav a:hover {
+  color: #ffffff;
+}
+
+.header-right .icon {
+  margin-left: 30px;
+  cursor: pointer;
+  font-size: 2rem;
+  color: #daa520;
+  transition: color 0.3s ease;
+}
+
+.header-right .icon:hover {
+  color: #ffffff;
+}
+
+.nav-item.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.nav-link {
+  color: #daa520;
+  text-decoration: none;
+  margin: 0 20px;
+  font-weight: 500;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #121212;
+  list-style: none;
+  padding: 0;
+  margin-top: 15px;
+  min-width: 220px;
+  z-index: 1000;
+}
+
+.nav-item.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+.dropdown-menu li {
+  text-align: center;
+  border-bottom: 1px solid #daa520;
+}
+
+.dropdown-menu li:last-child {
+  border-bottom: none;
+}
+
+.dropdown-menu li a {
+  display: block;
+  padding: 15px 20px;
+  color: #daa520;
+  text-decoration: none;
+  font-size: 1.2rem;
+  transition: background-color 0.3s ease;
+}
+
+.dropdown-menu li a:hover {
+  background-color: #333;
+}
+
+/* --- 3. ESTILOS DE LA PORTADA (HERO SECTION) --- */
+.hero-section {
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  color: white;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 20px;
+}
+
+.hero-section h1 {
+  font-size: 4.5rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+.hero-section p {
+  font-size: 1.5rem;
+  font-weight: 400;
+  letter-spacing: 1px;
+  text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.7);
+}
+
+/* --- 4. ESTILOS DE LA SECCIÓN DE INTRODUCCIÓN --- */
+.intro-section {
+  background-color: #000;
+  color: #ffffff;
+  padding: 30px 20px;
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.intro-section p {
+  max-width: 600px;
+  margin: 0 auto 25px auto;
+  font-weight: 600;
+  font-size: 1.5rem;
+  line-height: 1.6;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+.btn-light {
+  background-color: #ffffff;
+  color: #333;
+  border: 1px solid #ccc;
+  padding: 12px 30px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.btn-light:hover {
+  background-color: #daa520;
+  color: #1c1c1c;
+}
+
+/* --- 5. ESTILOS GENERALES DE SECCIONES (TÍTULOS, ETC.) --- */
+.section-title {
+  font-size: 2.5rem;
+  margin: 60px 0;
+  text-align: center;
+}
+
+/* --- 6. ESTILOS PARA VISTA MÓVIL --- */
+.product-card,
+.quienes-somos-section {
+  margin: 40px 15px;
+  text-align: center;
+}
+
+.product-card img,
+.quienes-somos-section img {
+  max-width: 100%;
+  height: auto;
+}
+
+.product-card h2 {
+  font-size: 2rem;
+}
+
+@media (max-width: 768px) {
+
+  .header-nav,
+  .header-right {
+    display: none;
   }
-  to {
-    transform: rotate(360deg);
+
+  .header-container {
+    justify-content: center;
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+/* --- 7. ESTILOS PARA VISTA DE LAPTOP (PANTALLAS GRANDES) --- */
+@media (min-width: 1024px) {
+  main {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .product-card {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    margin: 60px 0;
+    gap: 0;
+  }
+
+  .product-card .product-image-container {
+    flex: 1;
+  }
+
+  .product-card .product-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.3s ease-in-out;
+  }
+
+  .product-card .product-info-container {
+    flex: 1;
+    background-color: #F9F5F0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+  }
+
+  .product-card .product-info-container::before {
+    content: '';
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    border: 1px solid #daa520;
+    box-shadow: 0 0 0 1px #daa520;
+    pointer-events: none;
+  }
+
+  .product-card .content-wrapper {
+    padding: 50px 30px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .product-card.reverse {
+    flex-direction: row-reverse;
+  }
+
+  .product-info-container h2 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+
+  .product-info-container p {
+    max-width: 350px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+  }
+
+  .product-card .btn-dark {
+    background-color: #1c1c1c;
+    color: #ffffff;
+    border: none;
+    padding: 15px 40px;
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  .product-card .btn-dark:hover {
+    background-color: #daa520;
+    color: #1c1c1c;
+  }
+
+  .quienes-somos-section {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    margin: 80px 0;
+  }
+
+  .quienes-somos-section .image-container,
+  .quienes-somos-section .text-container {
+    flex: 1;
+    text-align: left;
   }
 }
 
-.card {
-  padding: 2em;
+/* --- 8. ESTILOS DEL FOOTER --- */
+.main-footer {
+  background-color: #121212;
+  color: #daa520;
+  padding: 60px 20px 20px 20px;
 }
 
-.read-the-docs {
-  color: #888;
+.footer-container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.footer-newsletter {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.footer-newsletter h3 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.newsletter-form {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.newsletter-form input {
+  background-color: #ffffff;
+  border: none;
+  padding: 15px;
+  width: 300px;
+  color: #333;
+}
+
+.newsletter-form button {
+  background-color: #daa520;
+  color: #121212;
+  border: none;
+  padding: 15px 30px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.footer-divider {
+  border: none;
+  border-top: 1px solid #daa520;
+  margin-bottom: 40px;
+}
+
+.footer-columns {
+  display: flex;
+  justify-content: space-between;
+  text-align: left;
+  margin-bottom: 40px;
+}
+
+.footer-column {
+  flex: 1;
+  padding: 0 20px;
+}
+
+.footer-column h4 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-column ul li {
+  margin-bottom: 15px;
+}
+
+.footer-column ul li a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.footer-copyright {
+  text-align: center;
+  padding-top: 20px;
+  border-top: 1px solid #daa520;
+}
+
+/* --- ESTILOS PARA LAS PÁGINAS INTERIORES (Anillos, Collares, etc.) --- */
+
+/* Estilo para el Hero de las páginas interiores */
+.page-hero {
+  height: 80vh;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.page-hero h1 {
+  font-size: 4rem;
+  font-weight: 700;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+/* Contenedor para el contenido principal de la página */
+.page-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.page-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 60px 0;
+  text-align: center;
+}
+
+/* src/App.css DENTRO DE @media (min-width: 1024px) */
+
+/* --- Estilos para el nuevo ProductDisplay --- */
+.product-display {
+  margin-bottom: 80px;
+  /* Espacio entre cada producto */
+  text-align: center;
+}
+
+.product-display-images {
+  display: flex;
+  gap: 20px;
+  /* Espacio entre las dos imágenes */
+  margin-bottom: 30px;
+}
+
+.product-display-images .image-wrapper {
+  flex: 1;
+  /* Hace que cada imagen ocupe la mitad del espacio */
+}
+
+.product-display-images img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.product-display-info h3 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.product-display-info p {
+  max-width: 500px;
+  margin: 0 auto 30px auto;
+  /* Centra el párrafo */
+  line-height: 1.6;
 }
