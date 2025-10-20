@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 
-import Layout from "./components/Layout.jsx";
+import Layout from "./components/layout.jsx";
 import Home from './pages/Home.jsx';
 import Anillos from './pages/Anillos.jsx';
 import Collares from './pages/Collares.jsx';
