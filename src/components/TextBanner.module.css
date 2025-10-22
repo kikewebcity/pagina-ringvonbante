@@ -1,0 +1,24 @@
+/* --- AÑADE ESTAS LÍNEAS NUEVAS --- */
+.textBanner h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #000;
+}
+
+.textBanner {
+    /* Este es el color crema/beige de tu prototipo */
+    background-color: #f1ede7;
+    /* Ajusta este color si no es exacto */
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.textBanner p {
+    max-width: 600px;
+    /* Evita que el texto sea muy ancho */
+    margin: 0 auto;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    /* font-family: 'TuFuenteSans', sans-serif; */
+}

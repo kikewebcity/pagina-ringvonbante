@@ -16,14 +16,12 @@ function Header() {
                 </div>
                 <nav className="header-nav">
                     <Link to="/">Inicio</Link>
-                    <Link to="/">Novedades</Link>
                     <div className="nav-item dropdown">
-                        <span className="nav-link">Productos</span>
+                        <span className="nav-link">Colecciones</span>
                         <ul className="dropdown-menu">
                             <li><Link to="/anillos">Anillos</Link></li>
                             <li><Link to="/collares">Collares</Link></li>
-                            <li><Link to="/motos-electricas">Motos Eléctricas</Link></li>
-                            <li><Link to="/fustes">Fustes</Link></li>
+                            <li><Link to="/piezas-unicas">Piezas Únicas</Link></li>
                         </ul>
                     </div>
 

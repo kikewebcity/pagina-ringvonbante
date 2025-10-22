@@ -1,0 +1,147 @@
+/* src/components/FeaturedCard.module.css */
+
+/* El fondo beige claro de la sección de info */
+.infoContainer {
+    background-color: #f9f5f0;
+    /* <-- ¡CAMBIO AQUÍ! Este es el color del prototipo */
+    flex: 1;
+    /* Ocupa 50% */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 40px;
+    position: relative;
+    /* Necesario para posicionar el pseudo-elemento del borde */
+}
+
+/* --- ESTILOS PARA EL BORDE DORADO (NUEVOS) --- */
+.infoContainer::before {
+    content: '';
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    border: 1px solid #daa520;
+    /* Color dorado del prototipo */
+    box-shadow: 0 0 0 1px #daa520;
+    /* Un pequeño "glow" dorado */
+    pointer-events: none;
+    /* Asegura que no bloquee interacciones */
+    /* NOTA: El prototipo tiene un offset. Si quieres el offset:
+  top: 10px;
+  left: 10px;
+  right: -10px;
+  bottom: -10px;
+  */
+}
+
+
+.infoWrapper {
+    max-width: 450px;
+    /* Evita que el texto sea demasiado ancho */
+    padding: 50px 30px;
+    /* Asegura un buen padding interno */
+    width: 100%;
+    /* Asegura que el wrapper ocupe todo el espacio disponible del contenedor */
+    display: flex;
+    /* Añade display flex para centrar mejor el contenido interno */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.imageContainer {
+    flex: 1;
+    /* Ocupa 50% */
+}
+
+.imageContainer img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Clave para que la imagen llene el espacio */
+    display: block;
+    /* Elimina espacio fantasma debajo de la imagen */
+}
+
+.card {
+    display: flex;
+    width: 100%;
+    margin: 60px 0;
+    /* Espacio entre tarjetas */
+    background-color: #f9f5f0;
+    /* Fondo para móvil */
+    align-items: stretch;
+    /* Asegura que ambos lados (imagen y texto) tengan la misma altura */
+}
+
+/* --- La magia del 'reverse' --- */
+.card.reverse {
+    flex-direction: row-reverse;
+}
+
+.infoWrapper h3 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    /* font-family: 'TuFuenteSerif', serif; */
+}
+
+.infoWrapper p {
+    line-height: 1.6;
+    margin-bottom: 30px;
+    /* font-family: 'TuFuenteSans', sans-serif; */
+}
+
+/* Botón (copiado de tu estilo anterior) */
+.btnDark {
+    background-color: #1c1c1c;
+    color: #ffffff;
+    border: none;
+    padding: 15px 40px;
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btnDark:hover {
+    background-color: #daa520;
+    color: #1c1c1c;
+}
+
+
+/* --- RESPONSIVE PARA MÓVIL --- */
+@media (max-width: 768px) {
+
+    .card,
+    .card.reverse {
+        /* En móvil, siempre se apilan: Imagen Arriba, Texto Abajo */
+        flex-direction: column;
+        margin: 40px 15px;
+        /* Ajuste de margen para móvil */
+    }
+
+    .infoContainer {
+        padding: 30px 20px;
+        /* Menos padding en móvil */
+    }
+
+    /* El borde dorado se aplica al contenedor de información */
+    .infoContainer::before {
+        top: 0px;
+        /* Restablecer para móvil si se usó offset */
+        left: 0px;
+        right: 0px;
+        bottom: 0px;
+    }
+
+    .infoWrapper h3 {
+        font-size: 1.8rem;
+    }
+}
