@@ -1,0 +1,96 @@
+.category-nav-section {
+    background-color: #0a0a0a; /* Casi negro, un poco más claro que el fondo */
+    padding: 30px 0;
+    border-bottom: 1px solid #333;
+  }
+  
+  .category-nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around; /* Distribuye el espacio */
+    align-items: center;
+    flex-wrap: wrap; /* Para que se adapte a móviles */
+    gap: 20px;
+  }
+  
+  .category-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: #888; /* Gris apagado por defecto */
+    transition: all 0.3s ease;
+    width: 200px; /* Ancho fijo para que se vean ordenados */
+    cursor: pointer;
+  }
+  
+  /* Contenedor de la imagen circular */
+  .cat-image-wrapper {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 15px;
+    border: 2px solid #333;
+    transition: border-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .cat-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(100%); /* Empieza en blanco y negro */
+    transition: filter 0.3s ease;
+  }
+  
+  .cat-title {
+    font-family: 'Impact', sans-serif; /* Tu fuente corporativa */
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  
+  .cat-arrow {
+    font-size: 0.8rem;
+    margin-top: 5px;
+    opacity: 0; /* Oculto hasta hacer hover */
+    transform: translateY(-5px);
+    transition: all 0.3s ease;
+    color: #daa520;
+  }
+  
+  /* --- EFECTOS HOVER (LA MAGIA) --- */
+  .category-item:hover {
+    color: #ffffff; /* Texto blanco al pasar mouse */
+  }
+  
+  .category-item:hover .cat-image-wrapper {
+    border-color: #daa520; /* Borde dorado */
+    transform: scale(1.1); /* Crece un poquito */
+  }
+  
+  .category-item:hover .cat-image-wrapper img {
+    filter: grayscale(0%); /* Vuelve el color */
+  }
+  
+  .category-item:hover .cat-title {
+    color: #daa520;
+  }
+  
+  .category-item:hover .cat-arrow {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  /* --- MÓVIL --- */
+  @media (max-width: 768px) {
+    .category-nav-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr; /* 2 columnas en móvil */
+      gap: 30px 10px;
+    }
+    .category-item {
+      width: auto;
+    }
+  }

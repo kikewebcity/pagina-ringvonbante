@@ -1,345 +1,270 @@
-/* --- 1. ESTILOS GENERALES Y FUENTES --- */
-body {
-  background-color: #fdfaf6;
-}
-
-.App {
-  text-align: center;
-  width: 100%;
-}
-
-/* --- 2. ESTILOS DEL HEADER (BARRA DE NAVEGACIÓN) --- */
-.main-header {
-  background-color: #000;
-  padding: 15px 0;
-  color: white;
-}
-
-.header-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 20px;
-}
-
-.header-left .logo {
-  height: 80px;
-}
-
-.header-nav a {
-  color: #daa520;
-  text-decoration: none;
-  margin: 0 20px;
-  font-weight: 500;
-  font-size: 1.5rem;
-  transition: color 0.3s ease;
-}
-
-.header-nav a:hover {
-  color: #ffffff;
-}
-
-.header-right .icon {
-  margin-left: 30px;
-  cursor: pointer;
-  font-size: 2rem;
-  color: #daa520;
-  transition: color 0.3s ease;
-}
-
-.header-right .icon:hover {
-  color: #ffffff;
-}
-
-.nav-item.dropdown {
-  position: relative;
-  display: inline-block;
-}
-
-.nav-link {
-  color: #daa520;
-  text-decoration: none;
-  margin: 0 20px;
-  font-weight: 500;
-  font-size: 1.5rem;
-  cursor: pointer;
-}
-
-.dropdown-menu {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: #121212;
-  list-style: none;
-  padding: 0;
-  margin-top: 15px;
-  min-width: 220px;
-  z-index: 1000;
-}
-
-.nav-item.dropdown:hover .dropdown-menu {
-  display: block;
-}
-
-.dropdown-menu li {
-  text-align: center;
-  border-bottom: 1px solid #daa520;
-}
-
-.dropdown-menu li:last-child {
-  border-bottom: none;
-}
-
-.dropdown-menu li a {
-  display: block;
-  padding: 15px 20px;
-  color: #daa520;
-  text-decoration: none;
-  font-size: 1.2rem;
-  transition: background-color 0.3s ease;
-}
-
-.dropdown-menu li a:hover {
-  background-color: #333;
-}
-
-/* --- 3. ESTILOS DE LA PORTADA (HERO SECTION) --- */
-.hero-section {
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
-  color: white;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 60px 20px;
-}
-
-.hero-section h1 {
-  font-size: 4.5rem;
-  font-weight: 700;
-  margin-bottom: 10px;
-  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
-}
-
-.hero-section p {
-  font-size: 1.5rem;
-  font-weight: 400;
-  letter-spacing: 1px;
-  text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.7);
-}
-
-/* --- 4. ESTILOS DE LA SECCIÓN DE INTRODUCCIÓN --- */
-.intro-section {
-  background-color: #000;
-  color: #ffffff;
-  padding: 30px 20px;
-  text-align: center;
-}
-
-.intro-section p {
-  max-width: 600px;
-  margin: 0 auto 25px auto;
-  font-weight: 600;
-  font-size: 1.5rem;
-  line-height: 1.6;
-}
-
-.btn-light {
-  background-color: #ffffff;
-  color: #333;
-  border: 1px solid #ccc;
-  padding: 12px 30px;
-  font-size: 1rem;
-  font-weight: bold;
-  cursor: pointer;
-  border-radius: 5px;
-  transition: all 0.3s ease;
-}
-
-.btn-light:hover {
-  background-color: #daa520;
-  color: #1c1c1c;
-}
-
-/* --- 5. ESTILOS GENERALES DE SECCIONES (TÍTULOS, ETC.) --- */
-.section-title {
-  font-size: 2.5rem;
-  margin: 60px 0;
-  text-align: center;
-}
-
-/* --- 6. ESTILOS PARA VISTA MÓVIL --- */
-.quienes-somos-section {
-  margin: 40px 15px;
-  text-align: center;
-}
-
-.quienes-somos-section img {
-  max-width: 100%;
-  height: auto;
-}
-
-@media (max-width: 768px) {
-
-  .header-nav,
-  .header-right {
-    display: none;
+/* =========================================
+   1. ESTILOS GENERALES Y FUENTES
+   ========================================= */
+   body {
+    background-color: #fdfaf6;
+    margin: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   }
-
+  
+  .App {
+    text-align: center;
+    width: 100%;
+  }
+  
+  /* =========================================
+     2. HEADER Y NAVEGACIÓN (CORREGIDO)
+     ========================================= */
+  .main-header {
+    background-color: #000000; /* Fondo Negro */
+    color: #ffffff;
+    width: 100%;
+    position: relative;
+    z-index: 1000;
+    padding: 20px 0;
+    border-bottom: 1px solid #333;
+  }
+  
   .header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column; /* Escritorio: Vertical (Logo arriba, Menú abajo) */
+    align-items: center;
     justify-content: center;
   }
-}
-
-/* --- 7. ESTILOS PARA VISTA DE LAPTOP (PANTALLAS GRANDES) --- */
-@media (min-width: 1024px) {
-  main {
+  
+  /* --- Estilos del Logo / Nombre --- */
+  .brand-name {
+    font-family: 'Impact', sans-serif;
+    font-size: 3rem;
+    color: #ffffff;
+    text-decoration: none;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    display: block;
+    transition: color 0.3s;
+  }
+  
+  .brand-name:hover {
+    color: #daa520;
+  }
+  
+  /* --- Estilos del Menú (Contenedor) --- */
+  .nav-menu {
+    width: 100%;
+  }
+  
+  .nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+  }
+  
+  /* =========================================
+     EFECTO DE LÍNEA DORADA (LETRAS E ICONO)
+     ========================================= */
+  
+  /* 1. Configuración Base para Enlaces y el Icono */
+  .nav-list li a,
+  .mobile-toggle {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: 1px;
+    
+    position: relative; /* NECESARIO: Para que la línea se pegue a esto */
+    display: inline-block; /* NECESARIO: Para que respete el ancho */
+    padding-bottom: 5px; /* Espacio entre la letra y la línea */
+    transition: color 0.3s ease;
+    cursor: pointer;
+  }
+  
+  /* 2. Crear la línea invisible (Pseudo-elemento) */
+  .nav-list li a::after,
+  .mobile-toggle::after {
+    content: '';
+    position: absolute;
+    width: 0; /* Empieza invisible (ancho 0) */
+    height: 2px; /* Grosor de la línea */
+    bottom: 0; /* Pegada abajo */
+    left: 0;
+    background-color: #daa520; /* Color Dorado */
+    transition: width 0.3s ease-in-out; /* Animación de expansión */
+  }
+  
+  /* 3. Animación al pasar el mouse (Hover) */
+  .nav-list li a:hover,
+  .mobile-toggle:hover {
+    color: #daa520; /* Letra cambia a dorado */
+  }
+  
+  .nav-list li a:hover::after,
+  .mobile-toggle:hover::after {
+    width: 100%; /* La línea se expande al 100% */
+  }
+  
+  /* Estilo especial para Bitácora (sin borde fijo para no chocar con la animación) */
+  .blog-link {
+    font-style: italic;
+  }
+  
+  /* --- Botón Hamburguesa (Por defecto oculto en escritorio) --- */
+  .mobile-toggle {
+    display: none; 
+    /* Hereda los estilos de animación de arriba */
+  }
+  
+  /* =========================================
+     3. MEDIA QUERY: MÓVIL (< 768px)
+     ========================================= */
+  @media (max-width: 768px) {
+  
+    .header-container {
+      flex-direction: row; /* Móvil: Horizontal (Logo Izq, Icono Der) */
+      justify-content: space-between;
+      padding: 10px 20px;
+    }
+  
+    .brand-name {
+      font-size: 1.5rem; 
+      margin-bottom: 0;
+    }
+  
+    .mobile-toggle {
+      display: flex; /* Hacemos visible el icono */
+      align-items: center;
+      font-size: 1.5rem; /* Icono un poco más grande */
+    }
+  
+    /* El menú desplegable */
+    .nav-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      background-color: #000000;
+      height: 0;
+      overflow: hidden;
+      transition: height 0.4s ease;
+      border-bottom: 1px solid #333;
+    }
+  
+    .nav-menu.active {
+      height: auto; /* Se abre */
+      padding-bottom: 20px;
+    }
+  
+    .nav-list {
+      flex-direction: column; /* Lista vertical */
+      align-items: center;
+      gap: 20px;
+      padding-top: 20px;
+    }
+  
+    .nav-list li a {
+      font-size: 1.2rem;
+    }
+  }
+  
+  /* =========================================
+     4. ESTILOS DE PORTADA Y SECCIONES
+     ========================================= */
+  .hero-section {
+    background-size: cover;
+    background-position: center center;
+    color: white;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 20px;
+  }
+  
+  .hero-section h1 {
+    font-size: 4.5rem;
+    font-weight: 700;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+  }
+  
+  .intro-section {
+    background-color: #000;
+    color: #ffffff;
+    padding: 30px 20px;
+    text-align: center;
+  }
+  
+  .btn-light {
+    background-color: #ffffff;
+    color: #333;
+    border: 1px solid #ccc;
+    padding: 12px 30px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+  }
+  
+  .btn-light:hover {
+    background-color: #daa520;
+    color: #1c1c1c;
+  }
+  
+  /* =========================================
+     5. FOOTER
+     ========================================= */
+  .main-footer {
+    background-color: #121212;
+    color: #daa520;
+    padding: 60px 20px 20px 20px;
+  }
+  
+  .footer-container {
     max-width: 1100px;
     margin: 0 auto;
   }
-
-  .quienes-somos-section {
+  
+  .footer-columns {
     display: flex;
-    align-items: center;
-    gap: 40px;
-    margin: 80px 0;
-  }
-
-  .quienes-somos-section .image-container,
-  .quienes-somos-section .text-container {
-    flex: 1;
+    justify-content: space-between;
+    flex-wrap: wrap;
     text-align: left;
+    margin-bottom: 40px;
   }
-}
-
-/* --- 8. ESTILOS DEL FOOTER --- */
-.main-footer {
-  background-color: #121212;
-  color: #daa520;
-  padding: 60px 20px 20px 20px;
-}
-
-.footer-container {
-  max-width: 1100px;
-  margin: 0 auto;
-}
-
-.footer-newsletter {
-  text-align: center;
-  margin-bottom: 40px;
-}
-
-.footer-newsletter h3 {
-  font-size: 1.8rem;
-  font-weight: 700;
-  margin-bottom: 10px;
-}
-
-.newsletter-form {
-  margin-top: 20px;
-  display: flex;
-  justify-content: center;
-}
-
-.newsletter-form input {
-  background-color: #ffffff;
-  border: none;
-  padding: 15px;
-  width: 300px;
-  color: #333;
-}
-
-.newsletter-form button {
-  background-color: #daa520;
-  color: #121212;
-  border: none;
-  padding: 15px 30px;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.footer-divider {
-  border: none;
-  border-top: 1px solid #daa520;
-  margin-bottom: 40px;
-}
-
-.footer-columns {
-  display: flex;
-  justify-content: space-between;
-  text-align: left;
-  margin-bottom: 40px;
-}
-
-.footer-column {
-  flex: 1;
-  padding: 0 20px;
-}
-
-.footer-column h4 {
-  font-size: 1.1rem;
-  font-weight: 700;
-  margin-bottom: 20px;
-  text-transform: uppercase;
-}
-
-.footer-column ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.footer-column ul li {
-  margin-bottom: 15px;
-}
-
-.footer-column ul li a {
-  color: #ffffff;
-  text-decoration: none;
-}
-
-.footer-copyright {
-  text-align: center;
-  padding-top: 20px;
-  border-top: 1px solid #daa520;
-}
-
-/* --- ESTILOS PARA LAS PÁGINAS INTERIORES (Anillos, Collares, etc.) --- */
-
-/* Estilo para el Hero de las páginas interiores */
-.page-hero {
-  height: 80vh;
-  background-size: cover;
-  background-position: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
-}
-
-.page-hero h1 {
-  font-size: 4rem;
-  font-weight: 700;
-  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
-}
-
-/* Contenedor para el contenido principal de la página */
-.page-container {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-.page-title {
-  font-size: 2.5rem;
-  font-weight: 700;
-  margin: 60px 0;
-  text-align: center;
-}
+  
+  .footer-column {
+    flex: 1;
+    min-width: 200px;
+    padding: 10px;
+  }
+  
+  .footer-column ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .footer-column ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  
+  .footer-column ul li a:hover {
+    color: #daa520;
+  }
+  
+  .footer-copyright {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid #daa520;
+  }

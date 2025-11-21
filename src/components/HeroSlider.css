@@ -1,0 +1,228 @@
+/* =========================================
+   HeroSlider.css - CÓDIGO CORREGIDO
+   ========================================= */
+
+/* --- 1. Configuración General del Slider --- */
+.hero-slider-container {
+    width: 100%;
+    /* Ajusta el 80px según la altura de tu header */
+    height: calc(100vh - 80px); 
+    min-height: 600px;
+    background-color: #000;
+    position: relative;
+}
+  
+.swiper.mySwiper {
+    width: 100%;
+    height: 100%;
+}
+
+.slide-content {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center center;
+    display: flex;
+}
+  
+/* =========================================
+    2. ESTILOS DEL SLIDE DE INTRO (Logo + Frase)
+   ========================================= */
+.intro-slide {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-blend-mode: multiply;
+    color: #ffffff;
+}
+
+.intro-content-wrapper {
+    max-width: 800px;
+    padding: 20px;
+}
+  
+@keyframes fadeInScale {
+    0% { opacity: 0; transform: scale(0.95); filter: blur(4px); }
+    100% { opacity: 1; transform: scale(1); filter: blur(0); }
+}
+
+.brand-name-slide {
+    font-family: 'Impact', sans-serif;
+    font-size: 5rem;
+    letter-spacing: 5px;
+    margin-bottom: 20px;
+    color: #ffffff;
+    animation: fadeInScale 1.5s ease-out forwards;
+}
+
+.intro-phrase {
+    font-size: 1.5rem;
+    font-weight: 300;
+    letter-spacing: 2px;
+    opacity: 0;
+    animation: fadeInScale 1.5s ease-out 0.5s forwards; 
+}
+  
+/* =========================================
+    3. ESTILOS DE LOS SLIDES DE PRODUCTO
+   ========================================= */
+
+.slide-overlay {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    padding: 0 8%;
+    box-sizing: border-box;
+}
+
+/* --- Posicionamiento del Bloque de Texto --- */
+
+/* Alineación a la Derecha */
+.slide-overlay.pos-right {
+    justify-content: flex-end;
+    align-items: center;
+}
+
+/* Alineación al Centro */
+.slide-overlay.pos-center {
+    justify-content: center;
+    align-items: center;
+}
+
+/* Alineación a la Izquierda */
+.slide-overlay.pos-left {
+    justify-content: flex-start;
+    align-items: center;
+}
+
+/* --- El Bloque de Texto --- */
+.product-content-wrapper {
+    background: rgba(0, 0, 0, 0.65);
+    padding: 40px 50px;
+    max-width: 550px;
+    text-align: left;
+    border: 1px solid rgba(218, 165, 32, 0.3);
+    backdrop-filter: blur(5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.product-content-wrapper h3 {
+    font-family: 'Georgia', serif;
+    font-size: 2.5rem;
+    font-weight: 400;
+    margin: 0 0 15px 0;
+    color: #daa520;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    line-height: 1.1;
+}
+
+.subtitle-divider {
+    width: 70px;
+    height: 3px;
+    background-color: #daa520;
+    margin-bottom: 25px;
+}
+
+.product-content-wrapper p {
+    font-size: 1.1rem;
+    color: #f0f0f0;
+    margin-bottom: 35px;
+    font-weight: 300;
+    line-height: 1.6;
+}
+
+.slide-btn {
+    display: inline-block;
+    padding: 14px 40px;
+    background-color: transparent;
+    border: 2px solid #daa520;
+    color: #daa520;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: all 0.4s ease;
+}
+
+.slide-btn:hover {
+    background-color: #daa520;
+    color: #000;
+    cursor: pointer;
+}
+
+/* =========================================
+    4. CONTROLES DE SWIPER
+   ========================================= */
+.swiper-pagination-bullet {
+    background: #fff;
+    opacity: 0.4;
+    width: 12px;
+    height: 12px;
+    margin: 0 6px !important;
+}
+.swiper-pagination-bullet-active {
+    background: #daa520 !important;
+    opacity: 1;
+}
+.swiper-button-next, .swiper-button-prev {
+    color: #daa520 !important;
+    transition: transform 0.2s;
+}
+.swiper-button-next:hover, .swiper-button-prev:hover {
+    transform: scale(1.2);
+}
+
+/* =========================================
+    5. RESPONSIVE (MÓVIL)
+   ========================================= */
+@media (max-width: 768px) {
+
+    .brand-name-slide { font-size: 3rem; }
+    .intro-phrase { font-size: 1.2rem; padding: 0 10px; }
+
+    /* Reubicación del contenedor de texto */
+    .slide-overlay, 
+    .slide-overlay.pos-right, 
+    .slide-overlay.pos-left {
+        align-items: flex-end !important; 
+        justify-content: center !important;
+        padding: 0; 
+    }
+
+    .product-content-wrapper {
+        width: 100%;
+        max-width: 100%;
+        background: rgba(0, 0, 0, 0.9); 
+        padding: 30px 20px 50px 20px; 
+        text-align: center; 
+        border: none;
+        border-top: 2px solid #daa520; 
+        backdrop-filter: none;
+        box-shadow: none;
+    }
+
+    .product-content-wrapper h3 {
+        font-size: 1.8rem;
+    }
+    
+    .subtitle-divider {
+        margin: 0 auto 20px auto;
+    }
+
+    .product-content-wrapper p {
+        font-size: 1rem;
+        margin-bottom: 25px;
+    }
+
+    .slide-btn {
+        display: block;
+        width: 100%;
+        padding: 15px 0;
+    }
+
+    .swiper-button-next, .swiper-button-prev {
+        display: none !important;
+    }
+}
