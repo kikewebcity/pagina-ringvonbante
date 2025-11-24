@@ -24,30 +24,29 @@ function Footer() {
                     <div className="footer-column">
                         <h4>EXPLORAR</h4>
                         <ul>
-                            <li><a href="#colecciones">> Colecciones</a></li>
-                            <li><a href="#anillos">> Anillos</a></li>
-                            <li><a href="#collares">> Collares</a></li>
-                            <li><a href="#piezas-unicas">> Piezas Únicas</a></li>
-                            <li><a href="#gift-cards">> Gift Cards</a></li>
+                            <li><a href="#colecciones"> Colecciones</a></li>
+                            <li><a href="#anillos"> Anillos</a></li>
+                            <li><a href="#collares">Collares</a></li>
+                            <li><a href="#piezas-unicas"> Piezas Únicas</a></li>
+                            <li><a href="#gift-cards"> Gift Cards</a></li>
                         </ul>
                     </div>
                     <div className="footer-column">
                         <h4>SOPORTE Y POLÍTICAS</h4>
                         <ul>
-                            <li><a href="#faq">> Preguntas Frecuentes</a></li>
-                            <li><a href="#envios">> Envíos y Devoluciones</a></li>
-                            <li><a href="#guia">> Guía de las Joyas</a></li>
-                            <li><a href="#cuidado">> Cuidado de las Joyas</a></li>
-                            <li><a href="#privacidad">> Política de Privacidad</a></li>
+                            <li><a href="#faq"> Preguntas Frecuentes</a></li>
+                            <li><a href="#envios">nvíos y Devoluciones</a></li>
+                            <li><a href="#guia"> Guía de las Joyas</a></li>
+                            <li><a href="#cuidado"> Cuidado de las Joyas</a></li>
+                            <li><a href="#privacidad">Política de Privacidad</a></li>
                         </ul>
                     </div>
                     <div className="footer-column">
                         <h4>RINGVONBANTE</h4>
                         <ul>
-                            <li><a href="#historia">> Nuestra Historia</a></li>
-                            <li><a href="#proceso">> Proceso Artesanal</a></li>
-                            <li><a href="#blog">> Blog / Manifiesto</a></li>
-                            <li><a href="#contacto">> Contacto</a></li>
+                        <li><a href="#proceso">&gt; Proceso Artesanal</a></li>
+                        <li><a href="#blog">&gt; Blog / Manifiesto</a></li>
+                        <li><a href="#contacto">&gt; Contacto</a></li>
                         </ul>
                         <h4>SÍGUENOS:</h4>
                         {/* Aquí puedes añadir íconos de redes sociales si lo deseas */}

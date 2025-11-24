@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FiMenu, FiX } from 'react-icons/fi'; // Iconos de menú y cerrar
-import logo from '/home/kikewebcity/pagina-ringvonbante/src/assets/logo-ringvonbante.png'; // Asegúrate de tener tu logo o usa texto
+import logo from '../assets/logo-ringvonbante.png'; 
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
