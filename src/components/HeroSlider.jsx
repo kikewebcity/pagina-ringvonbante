@@ -19,7 +19,7 @@ const bannerIntro = "https://www.transparenttextures.com/patterns/black-felt.png
 
 // C) PRODUCTOS (Nombres revisados según tu lista de archivos)
 import bannerAnillo from '../assets/banneranillo.webp';       
-import bannerMoto from '../assets/tanque.webp'; // <-- OJO: En tu lista se llama 'tanque.webp'
+import bannerMoto from '../assets/bannermoto.webp'; 
 import bannerEscultura from '../assets/bannerescultura.webp'; 
 import bannerFustes from '../assets/bannerfuste.webp';        
 import bannerReciclados from '../assets/reciclados.webp';     
