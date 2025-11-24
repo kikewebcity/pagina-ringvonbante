@@ -2,8 +2,8 @@
 
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { FiMenu, FiX } from 'react-icons/fi'; // Iconos de menú y cerrar
-import logo from '../assets/logo-ringvonbante.png'; 
+import { FiMenu, FiX } from 'react-icons/fi';
+import logo from '../assets/logoring.jpg'; 
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);

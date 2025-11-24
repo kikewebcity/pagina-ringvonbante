@@ -7,16 +7,22 @@ import 'swiper/css/effect-fade';
 import { Autoplay, Navigation, Pagination, EffectFade } from 'swiper/modules';
 import './HeroSlider.css';
 
+// ==========================================
+// 1. IMPORTACIÓN DE IMÁGENES
+// ==========================================
 
-// --- IMÁGENES DE EJEMPLO (VARIABLES) ---
-// Úsalas mientras subes las tuyas
-const logoImg = "https://via.placeholder.com/300x100/000000/ffffff?text=RINGBONVANTE";
-const introBg = "https://www.transparenttextures.com/patterns/black-felt.png";
-const accesorioImg = "src/assets/banneranillo.webp"; 
-const motoImg = "src/assets/bannermoto.webp";
-const esculturaImg = "src/assets/escultura.webp";
-const fustesImg = "src/assets/Bannerfuste.webp"; 
-const recicladosImg = "src/assets/reciclados.webp";
+// A) EL LOGO (Esto es lo que te faltaba y causaba el error gris)
+import logoImg from '../assets/logoring.jpg';
+
+// B) FONDO INTRO (Como no tienes imagen 'hero', usamos una textura online segura)
+const bannerIntro = "https://www.transparenttextures.com/patterns/black-felt.png";
+
+// C) PRODUCTOS (Nombres revisados según tu lista de archivos)
+import bannerAnillo from '../assets/banneranillo.webp';       
+import bannerMoto from '../assets/tanque.webp'; // <-- OJO: En tu lista se llama 'tanque.webp'
+import bannerEscultura from '../assets/bannerescultura.webp'; 
+import bannerFustes from '../assets/bannerfuste.webp';        
+import bannerReciclados from '../assets/reciclados.webp';     
 
 
 const HeroSlider = () => {
@@ -25,9 +31,9 @@ const HeroSlider = () => {
     {
       id: 1,
       type: 'intro', 
-      logo: logoImg,
+      logo: logoImg, // <--- Aquí es donde fallaba antes
       phrase: "El espíritu indomable. Hecho a mano. Hecho para durar.",
-      bgImage: introBg
+      bgImage: bannerIntro
     },
     // --- 2. ACCESORIOS ---
     {
@@ -37,7 +43,7 @@ const HeroSlider = () => {
       subtitle: "Talismanes nacidos de la tierra, forjados en plata para el espíritu.",
       buttonText: "VER PIEZAS",
       link: "/accesorios",
-      bgImage: accesorioImg,
+      bgImage: bannerAnillo,
       textPosition: 'right'
     },
     // --- 3. MOTOS ELÉCTRICAS ---
@@ -48,7 +54,7 @@ const HeroSlider = () => {
       subtitle: "Estética ruidosa. Motor silencioso. El futuro tiene alma clásica.",
       buttonText: "VER MODELOS",
       link: "/motos",
-      bgImage: motoImg, 
+      bgImage: bannerMoto,
       textPosition: 'right'
     },
     // --- 4. ESCULTURAS ---
@@ -59,10 +65,10 @@ const HeroSlider = () => {
       subtitle: "Metal en tensión. Obras que desafían la gravedad y la norma.",
       buttonText: "EXPLORAR GALERÍA",
       link: "/escultura",
-      bgImage: esculturaImg,
+      bgImage: bannerEscultura,
       textPosition: 'right'
     },
-    // --- 5. FUSTES (NUEVO) ---
+    // --- 5. FUSTES ---
     {
       id: 5,
       type: 'product',
@@ -70,10 +76,10 @@ const HeroSlider = () => {
       subtitle: "La columna vertebral del diseño. Soporte con carácter y fuerza.",
       buttonText: "VER FUSTES",
       link: "/fustes",
-      bgImage: fustesImg, // Asegúrate de cambiar esta imagen
+      bgImage: bannerFustes,
       textPosition: 'right'
     },
-    // --- 6. RECICLADOS (NUEVO) ---
+    // --- 6. RECICLADOS ---
     {
       id: 6,
       type: 'product',
@@ -81,7 +87,7 @@ const HeroSlider = () => {
       subtitle: "Resurrección de la materia. Lujo nacido del olvido industrial.",
       buttonText: "VER PROYECTOS",
       link: "/reciclados",
-      bgImage: recicladosImg, // Asegúrate de cambiar esta imagen
+      bgImage: bannerReciclados,
       textPosition: 'right'
     },
   ];
@@ -94,7 +100,6 @@ const HeroSlider = () => {
         effect={'fade'}
         navigation={true}
         pagination={{ clickable: true }}
-        // Aumenté un poco el tiempo (7s) para que de tiempo a leer
         autoplay={{ delay: 7000, disableOnInteraction: false }}
         modules={[Autoplay, Navigation, Pagination, EffectFade]}
         className="mySwiper"
@@ -104,13 +109,13 @@ const HeroSlider = () => {
             {slide.type === 'intro' ? (
               <div className="slide-content intro-slide" style={{ backgroundImage: `url(${slide.bgImage})`, backgroundColor: '#111' }}>
                   <div className="intro-content-wrapper">
-                      <h1 className="brand-name-slide">RINGBONVANTE</h1>
+                      {/* Aquí usamos el logo importado */}
+                      <img src={slide.logo} alt="Ringbonvante Logo" className="animated-logo" style={{maxWidth: '300px'}} />
                       <h2 className="intro-phrase">{slide.phrase}</h2>
                   </div>
               </div>
             ) : (
               <div className="slide-content product-slide" style={{ backgroundImage: `url(${slide.bgImage})` }}>
-                {/* Clase dinámica para posición (pos-right) */}
                 <div className={`slide-overlay pos-${slide.textPosition || 'center'}`}>
                     <div className="product-content-wrapper">
                         <h3>{slide.title}</h3>
