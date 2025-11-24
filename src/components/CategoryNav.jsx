@@ -1,23 +1,20 @@
 import React from 'react';
-// Ya no necesitamos 'Link' de react-router-dom porque nos quedamos en la misma página
 import './CategoryNav.css';
 
-// --- TUS IMÁGENES ---
-const imgAccesorios = "src/assets/iconanillowebp.webp"; 
-const imgMotos = "src/assets/iconmoto.webp";
-const imgEscultura = "src/assets/iconescultura.webp";
-const imgFustes = "src/assets/iconfuste.webp";
-const imgReciclados = "src/assets/iconreciclado.webp";
+// --- 1. IMPORTAR TUS ICONOS REALES ---
+// (Nombres basados en tu lista de archivos)
+import iconAnillo from '../assets/iconanillo.webp';
+import iconMoto from '../assets/iconmoto.webp';
+import iconEscultura from '../assets/iconescultura.webp';
+import iconFuste from '../assets/iconfuste.webp';
+import iconReciclado from '../assets/iconreciclado.webp';
 
 const CategoryNav = () => {
   
-  // Función para hacer scroll suave
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    } else {
-      console.warn(`No se encontró la sección: ${sectionId}`);
     }
   };
 
@@ -25,31 +22,31 @@ const CategoryNav = () => {
     { 
       id: 1, 
       title: 'ACCESORIOS', 
-      img: imgAccesorios, 
-      targetId: 'accesorios' // Esto debe coincidir con el ID en BentoGrid
+      img: iconAnillo, // <--- Usamos la variable importada
+      targetId: 'accesorios' 
     },
     { 
       id: 2, 
       title: 'MOTOS', 
-      img: imgMotos, 
+      img: iconMoto, 
       targetId: 'motos' 
     },
     { 
       id: 3, 
       title: 'ESCULTURA', 
-      img: imgEscultura, 
+      img: iconEscultura, 
       targetId: 'escultura' 
     },
     { 
       id: 4, 
       title: 'FUSTES', 
-      img: imgFustes, 
+      img: iconFuste, 
       targetId: 'fustes' 
     },
     { 
       id: 5, 
       title: 'RECICLADOS', 
-      img: imgReciclados, 
+      img: iconReciclado, 
       targetId: 'reciclados' 
     },
   ];
@@ -58,7 +55,6 @@ const CategoryNav = () => {
     <section className="category-nav-section">
       <div className="category-nav-container">
         {categories.map((cat) => (
-          // Cambiamos Link por un div con onClick
           <div 
             key={cat.id} 
             className="category-item" 
