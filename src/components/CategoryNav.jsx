@@ -3,7 +3,7 @@ import './CategoryNav.css';
 
 // --- 1. IMPORTAR TUS ICONOS REALES ---
 // (Nombres basados en tu lista de archivos)
-import iconAnillo from '../assets/iconanillo.webp';
+import iconAnillo from '../assets/iconoanillo.webp';
 import iconMoto from '../assets/iconmoto.webp';
 import iconEscultura from '../assets/iconescultura.webp';
 import iconFuste from '../assets/iconfuste.webp';

@@ -10,28 +10,26 @@ import './HeroSlider.css';
 // ==========================================
 // 1. IMPORTACIÓN DE IMÁGENES
 // ==========================================
-
-// A) EL LOGO (Esto es lo que te faltaba y causaba el error gris)
 import logoImg from '../assets/logoring.jpg';
 
-// B) FONDO INTRO (Como no tienes imagen 'hero', usamos una textura online segura)
+// Fondo Intro
 const bannerIntro = "https://www.transparenttextures.com/patterns/black-felt.png";
 
-// C) PRODUCTOS (Nombres revisados según tu lista de archivos)
-import bannerAnillo from '../assets/banneranillo.webp';       
+// Productos
+import bannerAnillo from '../assets/banneraccesorios.webp';       
 import bannerMoto from '../assets/bannermoto.webp'; 
 import bannerEscultura from '../assets/bannerescultura.webp'; 
 import bannerFustes from '../assets/bannerfuste.webp';        
-import bannerReciclados from '../assets/reciclados.webp';     
+import bannerReciclados from '../assets/bannerreciclados.webp';     
 
 
 const HeroSlider = () => {
   const slidesData = [
-    // --- 1. INTRO ---
+    // --- 1. INTRO (Este se queda igual, pantalla completa) ---
     {
       id: 1,
       type: 'intro', 
-      logo: logoImg, // <--- Aquí es donde fallaba antes
+      logo: logoImg, 
       phrase: "El espíritu indomable. Hecho a mano. Hecho para durar.",
       bgImage: bannerIntro
     },
@@ -44,7 +42,6 @@ const HeroSlider = () => {
       buttonText: "VER PIEZAS",
       link: "/accesorios",
       bgImage: bannerAnillo,
-      textPosition: 'right'
     },
     // --- 3. MOTOS ELÉCTRICAS ---
     {
@@ -55,7 +52,6 @@ const HeroSlider = () => {
       buttonText: "VER MODELOS",
       link: "/motos",
       bgImage: bannerMoto,
-      textPosition: 'right'
     },
     // --- 4. ESCULTURAS ---
     {
@@ -66,7 +62,6 @@ const HeroSlider = () => {
       buttonText: "EXPLORAR GALERÍA",
       link: "/escultura",
       bgImage: bannerEscultura,
-      textPosition: 'right'
     },
     // --- 5. FUSTES ---
     {
@@ -77,7 +72,6 @@ const HeroSlider = () => {
       buttonText: "VER FUSTES",
       link: "/fustes",
       bgImage: bannerFustes,
-      textPosition: 'right'
     },
     // --- 6. RECICLADOS ---
     {
@@ -88,8 +82,7 @@ const HeroSlider = () => {
       buttonText: "VER PROYECTOS",
       link: "/reciclados",
       bgImage: bannerReciclados,
-      textPosition: 'right'
-    },
+    }
   ];
 
   return (
@@ -107,16 +100,25 @@ const HeroSlider = () => {
         {slidesData.map((slide) => (
           <SwiperSlide key={slide.id}>
             {slide.type === 'intro' ? (
+              // --- SLIDE INTRO (Pantalla Completa) ---
               <div className="slide-content intro-slide" style={{ backgroundImage: `url(${slide.bgImage})`, backgroundColor: '#111' }}>
                   <div className="intro-content-wrapper">
-                      {/* Aquí usamos el logo importado */}
                       <img src={slide.logo} alt="Ringbonvante Logo" className="animated-logo" style={{maxWidth: '300px'}} />
                       <h2 className="intro-phrase">{slide.phrase}</h2>
                   </div>
               </div>
             ) : (
-              <div className="slide-content product-slide" style={{ backgroundImage: `url(${slide.bgImage})` }}>
-                <div className={`slide-overlay pos-${slide.textPosition || 'center'}`}>
+              // --- SLIDE PRODUCTO (DIVIDIDO 50/50) ---
+              <div className="split-slide-container">
+                
+                {/* Lado Izquierdo: IMAGEN */}
+                <div 
+                  className="split-image-side" 
+                  style={{ backgroundImage: `url(${slide.bgImage})` }}
+                ></div>
+
+                {/* Lado Derecho: TEXTO */}
+                <div className="split-text-side">
                     <div className="product-content-wrapper">
                         <h3>{slide.title}</h3>
                         <div className="subtitle-divider"></div>
@@ -124,6 +126,7 @@ const HeroSlider = () => {
                         <a href={slide.link} className="slide-btn">{slide.buttonText}</a>
                     </div>
                 </div>
+
               </div>
             )}
           </SwiperSlide>
