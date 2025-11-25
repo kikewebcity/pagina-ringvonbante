@@ -1,11 +1,95 @@
+/* =========================================
+   src/index.css - ESTILOS GLOBALES
+   ========================================= */
+
+/* 1. DIRECTIVAS DE TAILWIND (No las borres) */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* 2. VARIABLES GLOBALES */
+:root {
+  /* Fuentes Cyberpunk / Industrial */
+  --font-main: 'Rajdhani', sans-serif;       /* Títulos y Cuerpo */
+  --font-tech: 'Share Tech Mono', monospace; /* Datos técnicos y Botones */
+  
+  /* Paleta de Colores */
+  --color-gold: #daa520;
+  --color-black: #000000;
+  --color-dark-gray: #121212;
+}
+
+/* 3. CONFIGURACIÓN BASE */
+html {
+  scroll-behavior: smooth; /* Navegación suave entre secciones */
+}
+
 body {
   margin: 0;
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  padding: 0;
+  background-color: var(--color-black);
+  color: #ffffff;
+  /* Aplicamos la fuente Rajdhani a toda la web por defecto */
+  font-family: var(--font-main);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #000; /* Aseguramos fondo negro base */
+  overflow-x: hidden; /* Evita scroll horizontal indeseado */
+}
+
+/* 4. TIPOGRAFÍA */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-main);
+  font-weight: 700; /* Negrita fuerte */
+  text-transform: uppercase;
+  letter-spacing: 0.1em; /* Espaciado ancho futurista */
+  line-height: 1.2;
+}
+
+p {
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  line-height: 1.6;
+}
+
+/* Clases para forzar la fuente "Tech" (tipo código) */
+.font-tech, 
+.slide-btn, 
+.cat-title,
+.intro-phrase {
+  font-family: var(--font-tech) !important;
+  letter-spacing: 0.05em;
+}
+
+/* 5. ENLACES */
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.3s ease;
+}
+
+/* 6. PERSONALIZACIÓN DE LA BARRA DE SCROLL (Chrome/Safari/Edge) */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-black); 
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333; 
+  border-radius: 5px;
+  border: 2px solid var(--color-black);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-gold); /* Se pone dorada al agarrarla */
+}
+
+/* 7. UTILIDADES EXTRA */
+/* Para centrar cosas rápido */
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
