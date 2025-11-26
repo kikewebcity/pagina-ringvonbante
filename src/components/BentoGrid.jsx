@@ -5,33 +5,38 @@ import './BentoGrid.css';
 // 1. IMPORTACIÓN DE ASSETS
 // ==========================================
 
-// --- ACCESORIOS (1 Video Vertical + 2 Fotos Verticales) ---
+// --- ACCESORIOS ---
 import videoAccesorios from '../assets/videovenado.mp4'; 
 import imgAnillo1 from '../assets/venadito1.webp'; 
 import imgAnillo2 from '../assets/venadito2.webp'; 
 
-// --- MOTOS (1 Video Vertical + 2 Fotos Horizontales) ---
+// --- MOTOS ---
 import videoMoto from '../assets/videomotos2.mp4'; 
 import imgMotoHoriz1 from '../assets/fotomoto.webp'; 
 import imgMotoHoriz2 from '../assets/fotomoto2.webp'; 
 
-// --- ESCULTURA (1 Video Vertical + 2 Fotos Verticales) ---
-// NOTA: Como no pasaste un video específico para escultura, 
-// estoy reusando 'videovenado.mp4' para que el código no falle.
-// Cuando tengas el video de escultura, impórtalo aquí.
+// --- ESCULTURA ---
 import videoEscultura from  '../assets/videoescultura.mp4'; 
-import imgEscultura1 from '../assets/fotoescultura.webp'; // Reusando venaditos como pediste
+import imgEscultura1 from '../assets/fotoescultura.webp'; 
 import imgEscultura2 from '../assets/escultura.webp'; 
 
-// --- FUSTES Y RECICLADOS ---
-import imgFustes from '../assets/bannerfuste.webp';
-import imgReciclados from '../assets/reciclados.webp'; 
+// --- FUSTES ---
+import fusteBasket from '../assets/fuste1.webp'; 
+import fustePlata from '../assets/fuste2.webp';   
+import fusteBlack from '../assets/fuste3.webp';   
+
+// --- RECICLADOS (TUS NUEVAS IMÁGENES) ---
+// Asegúrate de que los nombres coincidan con los archivos en tu carpeta assets
+import recicladoGuitarra1 from '../assets/reciclado1.webp'; // Foto con fondo rosa
+import recicladoGuitarra2 from '../assets/reciclado2.webp'; // Close-up guitarra
+import recicladoCabeza1 from '../assets/reciclado3.webp';     // Cabeza mirando abajo
+import recicladoCabeza2 from '../assets/reciclado4.webp';     // Cabeza mirando frente
 
 
 const BentoGrid = () => {
   const sections = [
     // ---------------------------------------------------------
-    // 1. ACCESORIOS (Tríptico Vertical)
+    // 1. ACCESORIOS
     // ---------------------------------------------------------
     {
       id: 'accesorios',
@@ -39,18 +44,14 @@ const BentoGrid = () => {
       layout: 'layout-3-cols', 
       description: "Cada pieza es un diálogo entre la crudeza del material y la precisión del diseño. Plata de ley 925, piedras en bruto y acabados que evolucionan con el uso.",
       items: [
-        { 
-            type: 'video', 
-            src: videoAccesorios, 
-            alt: 'Video Taller Joyería' 
-        }, 
+        { type: 'video', src: videoAccesorios, alt: 'Video Taller Joyería' }, 
         { type: 'image', src: imgAnillo1, alt: 'Detalle Anillo' },
         { type: 'image', src: imgAnillo2, alt: 'Pieza en contexto' },
       ]
     },
 
     // ---------------------------------------------------------
-    // 2. MOTOS ELÉCTRICAS (Video Izq + 2 Horizontales Der)
+    // 2. MOTOS ELÉCTRICAS
     // ---------------------------------------------------------
     {
       id: 'motos',
@@ -58,37 +59,23 @@ const BentoGrid = () => {
       layout: 'layout-video-left', 
       description: "Ingeniería silenciosa con estética ruidosa. Baterías de litio de alto rendimiento ocultas en chasis clásicos modificados a mano.",
       items: [
-        { 
-            type: 'video', 
-            src: videoMoto, 
-            alt: 'Moto en movimiento' 
-        },
+        { type: 'video', src: videoMoto, alt: 'Moto en movimiento' },
         { type: 'image', src: imgMotoHoriz1, alt: 'Moto Perfil' },
         { type: 'image', src: imgMotoHoriz2, alt: 'Detalle Motor/Tanque' },
       ]
     },
 
     // ---------------------------------------------------------
-    // 3. ESCULTURA (Tríptico Vertical)
+    // 3. ESCULTURA
     // ---------------------------------------------------------
     {
       id: 'escultura',
       title: 'ESCULTURA MONUMENTAL',
-      
-      // Layout de 3 columnas verticales (Video + Foto + Foto)
       layout: 'layout-3-cols', 
-      
       description: "Obras de gran formato diseñadas para transformar el espacio. Estructuras de acero y bronce que desafían la estática.",
       items: [
-        // Columna 1: Video Vertical
-        { 
-            type: 'video', 
-            src: videoEscultura, // Aquí usa el video que definimos arriba
-            alt: 'Escultura en movimiento' 
-        },
-        // Columna 2: Foto Vertical
+        { type: 'video', src: videoEscultura, alt: 'Escultura en movimiento' },
         { type: 'image', src: imgEscultura1, alt: 'Detalle Soldadura' },
-        // Columna 3: Foto Vertical
         { type: 'image', src: imgEscultura2, alt: 'Textura Metal' },
       ]
     },
@@ -99,26 +86,33 @@ const BentoGrid = () => {
     {
       id: 'fustes',
       title: 'FUSTES & ESTRUCTURA',
-      layout: 'layout-split', 
-      description: "La columna vertebral del diseño arquitectónico. Piezas estructurales con carácter artístico.",
+      layout: 'layout-3-cols', 
+      description: "La columna vertebral de la montura. Piezas estructurales convertidas en lienzos de metal, plata y oro.",
       items: [
-        { type: 'image', src: imgFustes, alt: 'Columna detalle' },
-        { type: 'image', src: imgFustes, alt: 'Estructura soporte' },
+        { type: 'image', src: fusteBasket, alt: 'Fuste detalle Jugador' },
+        { type: 'image', src: fustePlata, alt: 'Fuste Plateado Cincelado' },
+        { type: 'image', src: fusteBlack, alt: 'Fuste Negro con Calaveras' },
       ]
     },
 
     // ---------------------------------------------------------
-    // 5. RECICLADOS
+    // 5. RECICLADOS (NUEVO LAYOUT DE 4 COLUMNAS)
     // ---------------------------------------------------------
     {
       id: 'reciclados',
       title: 'VIDA INDUSTRIAL',
-      layout: 'layout-1-2', 
-      description: "Nada se pierde, todo se transforma. Rescatamos piezas industriales olvidadas para darles una segunda vida de lujo.",
+      
+      // Usamos el nuevo layout de 4 columnas
+      layout: 'layout-4-cols', 
+      
+      description: "Nada se pierde, todo se transforma. Rescatamos piezas industriales y mecanismos olvidados para darles una segunda vida como arte funcional cyberpunk.",
+      
       items: [
-        { type: 'image', src: imgReciclados, alt: 'Pieza Reciclada Principal' },
-        { type: 'image', src: imgReciclados, alt: 'Detalle Mecanismo' },
-        { type: 'image', src: imgReciclados, alt: 'Proceso de Restauración' },
+        // Las 4 fotos verticales una al lado de la otra
+        { type: 'image', src: recicladoGuitarra1, alt: 'Guitarra Steampunk con modelo' },
+        { type: 'image', src: recicladoCabeza1, alt: 'Casco Biomecánico Perfil' },
+        { type: 'image', src: recicladoGuitarra2, alt: 'Detalle Mecanismo Guitarra' },
+        { type: 'image', src: recicladoCabeza2, alt: 'Casco Biomecánico Frente' },
       ]
     }
   ];

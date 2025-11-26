@@ -217,7 +217,23 @@
     grid-row: 2 / 3;
 }
 
+/* =====================================================
+   NUEVO LAYOUT: 4 Columnas Verticales
+   ===================================================== */
+   .layout-4-cols {
+    /* Crea 4 columnas de igual ancho */
+    grid-template-columns: repeat(4, 1fr);
+    /* Una sola fila alta */
+    grid-template-rows: 600px; /* Altura fija para que se vean bien */
+}
 
+/* En móvil, que se hagan 2 filas de 2 imágenes */
+@media (max-width: 768px) {
+    .layout-4-cols {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 400px 400px;
+    }
+}
 @media (max-width: 768px) {
     .bento-grid {
         height: auto; /* Altura automática en móvil */
