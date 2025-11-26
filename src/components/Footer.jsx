@@ -1,65 +1,51 @@
-// src/components/Footer.jsx
-
 import React from 'react';
+// IMPORTA TU LOGO
+import logoImg from '../assets/logoring.jpg'; 
+import { FaInstagram, FaFacebookF, FaTiktok } from 'react-icons/fa';
 
-function Footer() {
-    return (
-        <footer className="main-footer">
-            <div className="footer-container">
-                {/* --- Sección de Newsletter --- */}
-                <div className="footer-newsletter">
-                    <h3>ÚNETE A LA REVELIÓN</h3>
-                    <p>Sé el primero en conocer lanzamientos, piezas únicas y contenido exclusivo.</p>
-                    <form className="newsletter-form">
-                        <input type="email" placeholder="Introduce tu email aquí..." />
-                        <button type="submit">ENVIAR</button>
-                    </form>
-                </div>
+const Footer = () => {
+  return (
+    <footer className="main-footer">
+      <div className="footer-container">
+        
+        {/* 1. COLUMNA LOGO Y DESCRIPCIÓN */}
+        <div className="footer-brand">
+          <img src={logoImg} alt="Ringvonbante" className="footer-logo" />
+          <p>El espíritu indomable hecho joya. Diseño industrial aplicado al arte personal.</p>
+        </div>
 
-                {/* --- Línea Divisoria --- */}
-                <hr className="footer-divider" />
+        {/* 2. COLUMNA ENLACES RÁPIDOS */}
+        <div className="footer-links">
+          <h4>EXPLORAR</h4>
+          <ul>
+            <li><a href="/accesorios">Accesorios</a></li>
+            <li><a href="/motos">Motos</a></li>
+            <li><a href="/escultura">Escultura</a></li>
+            <li><a href="/reciclados">Reciclados</a></li>
+          </ul>
+        </div>
 
-                {/* --- Sección de Columnas --- */}
-                <div className="footer-columns">
-                    <div className="footer-column">
-                        <h4>EXPLORAR</h4>
-                        <ul>
-                            <li><a href="#colecciones"> Colecciones</a></li>
-                            <li><a href="#anillos"> Anillos</a></li>
-                            <li><a href="#collares">Collares</a></li>
-                            <li><a href="#piezas-unicas"> Piezas Únicas</a></li>
-                            <li><a href="#gift-cards"> Gift Cards</a></li>
-                        </ul>
-                    </div>
-                    <div className="footer-column">
-                        <h4>SOPORTE Y POLÍTICAS</h4>
-                        <ul>
-                            <li><a href="#faq"> Preguntas Frecuentes</a></li>
-                            <li><a href="#envios">nvíos y Devoluciones</a></li>
-                            <li><a href="#guia"> Guía de las Joyas</a></li>
-                            <li><a href="#cuidado"> Cuidado de las Joyas</a></li>
-                            <li><a href="#privacidad">Política de Privacidad</a></li>
-                        </ul>
-                    </div>
-                    <div className="footer-column">
-                        <h4>RINGVONBANTE</h4>
-                        <ul>
-                        <li><a href="#proceso">&gt; Proceso Artesanal</a></li>
-                        <li><a href="#blog">&gt; Blog / Manifiesto</a></li>
-                        <li><a href="#contacto">&gt; Contacto</a></li>
-                        </ul>
-                        <h4>SÍGUENOS:</h4>
-                        {/* Aquí puedes añadir íconos de redes sociales si lo deseas */}
-                    </div>
-                </div>
+        {/* 3. COLUMNA CONTACTO Y REDES */}
+        <div className="footer-contact">
+          <h4>CONTACTO</h4>
+          <a href="https://wa.me/5215512345678" target="_blank" className="btn-contact-footer">
+            CONTACTAR AL AUTOR
+          </a>
+          
+          <div className="social-icons">
+            <a href="https://instagram.com" target="_blank"><FaInstagram /></a>
+            <a href="https://facebook.com" target="_blank"><FaFacebookF /></a>
+            <a href="https://tiktok.com" target="_blank"><FaTiktok /></a>
+          </div>
+        </div>
 
-                {/* --- Sección de Copyright --- */}
-                <div className="footer-copyright">
-                    <p>2025 RINGVONBANTE</p>
-                </div>
-            </div>
-        </footer>
-    );
-}
+      </div>
+      
+      <div className="footer-bottom">
+        <p>&copy; 2025 RINGVONBANTE. Todos los derechos reservados.</p>
+      </div>
+    </footer>
+  );
+};
 
 export default Footer;
