@@ -1,7 +1,5 @@
-// src/components/Header.jsx
-
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'; // Usamos Link para cambiar de página
 import { FiMenu, FiX } from 'react-icons/fi';
 import logo from '../assets/logoring.jpg'; 
 
@@ -16,31 +14,31 @@ const Header = () => {
     <header className="main-header">
       <div className="header-container">
         
-        {/* --- LOGO (Visible siempre) --- */}
+        {/* --- LOGO --- */}
         <div className="logo-container">
-            {/* Si no tienes la imagen del logo aún, usa este h1: */}
+            {/* Al dar clic al logo, regresamos al Home */}
             <Link to="/" className="brand-name">RINGBONVANTE</Link>
-            
-            {/* Si usas imagen, descomenta esto y comenta la línea de arriba:
-            <Link to="/">
-              <img src={logo} alt="Ringbonvante Logo" className="brand-logo" />
-            </Link> 
-            */}
         </div>
 
-        {/* --- BOTÓN HAMBURGUESA (Solo Móvil) --- */}
+        {/* --- HAMBURGUESA (Móvil) --- */}
         <div className="mobile-toggle" onClick={toggleMenu}>
           {isOpen ? <FiX size={28} /> : <FiMenu size={28} />}
         </div>
 
-        {/* --- NAVEGACIÓN (Escritorio y Menú Móvil desplegado) --- */}
+        {/* --- NAVEGACIÓN (LINKS A PÁGINAS) --- */}
         <nav className={`nav-menu ${isOpen ? 'active' : ''}`}>
           <ul className="nav-list">
+            
+            {/* Link al Home */}
             <li><Link to="/" onClick={toggleMenu}>Home</Link></li>
+            
+            {/* Links a las Páginas Internas (Catálogos completos) */}
             <li><Link to="/accesorios" onClick={toggleMenu}>Accesorios</Link></li>
+            <li><Link to="/motos" onClick={toggleMenu}>Motos Eléctricas</Link></li>
             <li><Link to="/reciclados" onClick={toggleMenu}>Reciclados</Link></li>
             <li><Link to="/escultura" onClick={toggleMenu}>Escultura</Link></li>
-            <li><Link to="/motos" onClick={toggleMenu}>Motos Eléctricas</Link></li>
+            
+            {/* Estos si no tienen página aún, pueden llevar a contacto o Home */}
             <li><Link to="/cursos" onClick={toggleMenu}>Cursos</Link></li>
             <li><Link to="/bitacora" onClick={toggleMenu} className="blog-link">Bitácora</Link></li>
             <li><Link to="/contacto" onClick={toggleMenu} className="contact-btn">Contacto</Link></li>

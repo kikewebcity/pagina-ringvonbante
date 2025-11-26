@@ -1,0 +1,45 @@
+.page-hero {
+    width: 100%;
+    height: 50vh; /* Ocupa la mitad de la pantalla */
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+.page-hero-overlay {
+    background: rgba(0, 0, 0, 0.6); /* Oscurecer fondo */
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+}
+
+.page-hero-title {
+    font-family: 'Impact', sans-serif;
+    color: #daa520; /* Dorado */
+    font-size: 4rem;
+    letter-spacing: 4px;
+    margin-bottom: 10px;
+    text-shadow: 0 0 20px rgba(0,0,0,0.8);
+}
+
+.page-hero-subtitle {
+    font-family: 'Rajdhani', sans-serif;
+    color: #fff;
+    font-size: 1.5rem;
+    max-width: 600px;
+}
+
+@media (max-width: 768px) {
+    .page-hero-title { font-size: 2.5rem; }
+    .page-hero-subtitle { font-size: 1rem; }
+    .page-hero { height: 40vh; }
+}

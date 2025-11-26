@@ -1,21 +1,43 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
+// --- IMPORTACIONES DE COMPONENTES (Barra, Pie, Botón) ---
+import Header from './components/Header';
+import Footer from './components/Footer';
+import WhatsAppBtn from './components/WhatsAppBtn'; 
 
-import Layout from "./components/layout.jsx";
-import Home from './pages/Home.jsx';
-// --- FIN DE LA CORRECCIÓN ---
-
-import './App.css';
+// --- IMPORTACIONES DE PÁGINAS ---
+import Home from './pages/Home';
+import Accesorios from './pages/Accesorios';
+import Motos from './pages/Motos'; // <--- 1. IMPORTAS LA NUEVA PÁGINA DE MOTOS
 
 function App() {
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<Home />} />
-        </Route>
-      </Routes>
+      <div className="App">
+        
+        {/* Navegación fija arriba */}
+        <Header />
+
+        {/* Sistema de Rutas */}
+        <Routes>
+          <Route path="/" element={<Home />} />
+          
+          {/* Rutas de páginas internas */}
+          <Route path="/accesorios" element={<Accesorios />} />    
+          <Route path="/motos" element={<Motos />} /> {/* <--- 2. AGREGAS LA RUTA */}
+          
+          {/* Cuando crees las demás, las agregas así:
+          <Route path="/escultura" element={<Escultura />} />
+          <Route path="/reciclados" element={<Reciclados />} />
+          */}
+        </Routes>
+
+        {/* Elementos fijos globales */}
+        <WhatsAppBtn />
+        <Footer />
+        
+      </div>
     </BrowserRouter>
   );
 }
