@@ -11,7 +11,9 @@ import Home from './pages/Home';
 import Accesorios from './pages/Accesorios';
 import Escultura from './pages/Escultura';
 import Fustes from './pages/Fustes'; 
-import Reciclados from './pages/Reciclados'; // <--- AQUÍ ESTABA EL ERROR (Antes decía Fustes)
+import Reciclados from './pages/Reciclados';
+import Contacto from './pages/Contacto';
+
 
 function App() {
   return (
@@ -28,7 +30,7 @@ function App() {
           <Route path="/escultura" element={<Escultura />} />
           <Route path="/fustes" element={<Fustes />} />
           <Route path="/reciclados" element={<Reciclados />} />
-          
+          <Route path="/contacto" element={<Contacto />} />
         </Routes>
 
         <WhatsAppBtn />
