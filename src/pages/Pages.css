@@ -22,10 +22,9 @@
     font-family: 'Rajdhani', sans-serif;
 }
 
-/* --- GRILLA MAESTRA (Contenedor) --- */
+/* --- GRILLA MAESTRA --- */
 .catalog-grid {
     display: grid;
-    /* Esto hace que las columnas se ajusten solas según la pantalla */
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 40px;
     max-width: 1200px;
@@ -33,9 +32,7 @@
     padding: 0 20px;
 }
 
-/* =========================================
-   1. ESTILOS PARA ACCESORIOS (PRODUCTOS)
-   ========================================= */
+/* --- ESTILOS PRODUCTOS (ACCESORIOS) --- */
 .product-card {
     background: #111;
     border: 1px solid #333;
@@ -43,120 +40,26 @@
     display: flex;
     flex-direction: column;
 }
+.product-card:hover { transform: translateY(-10px); border-color: #daa520; }
 
-.product-card:hover {
-    transform: translateY(-10px);
-    border-color: #daa520;
-}
+.card-image { width: 100%; height: 350px; overflow: hidden; }
+.card-image img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(30%); transition: filter 0.3s; }
+.product-card:hover .card-image img { filter: grayscale(0%); }
 
-.card-image {
-    width: 100%;
-    height: 350px; /* Altura fija para uniformidad */
-    overflow: hidden;
-}
+.card-info { padding: 20px; text-align: center; flex-grow: 1; }
+.card-info h3 { font-family: 'Rajdhani', sans-serif; font-size: 1.5rem; color: #fff; margin-bottom: 10px; }
+.price { display: block; color: #daa520; font-family: 'Share Tech Mono', monospace; font-size: 1.2rem; margin-bottom: 20px; }
+.btn-buy { background: transparent; border: 1px solid #fff; color: #fff; padding: 10px 25px; cursor: pointer; font-family: 'Share Tech Mono', monospace; transition: all 0.3s; }
+.btn-buy:hover { background: #daa520; border-color: #daa520; color: #000; }
 
-.card-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    filter: grayscale(30%);
-    transition: filter 0.3s;
-}
+/* --- ESTILOS PROCESO (HÍBRIDO) --- */
+.process-card { position: relative; width: 100%; height: 100%; min-height: 400px; border: 1px solid #333; }
+.process-card img, .process-card video { width: 100%; height: 100%; object-fit: cover; filter: grayscale(100%) contrast(1.2); transition: transform 0.5s ease; }
+.process-card:hover img, .process-card:hover video { transform: scale(1.1); filter: grayscale(0%); }
+.process-overlay { position: absolute; bottom: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, transparent 60%); display: flex; align-items: flex-end; justify-content: center; padding: 30px 20px; text-align: center; }
+.process-overlay span { font-family: 'Impact', sans-serif; color: #daa520; font-size: 1.8rem; letter-spacing: 1px; }
 
-.product-card:hover .card-image img {
-    filter: grayscale(0%);
-}
-
-.card-info {
-    padding: 20px;
-    text-align: center;
-    /* Empuja el contenido para llenar el alto si es necesario */
-    flex-grow: 1; 
-}
-
-.card-info h3 {
-    font-family: 'Rajdhani', sans-serif;
-    font-size: 1.5rem;
-    color: #fff;
-    margin-bottom: 10px;
-    text-transform: uppercase;
-}
-
-.price {
-    display: block;
-    color: #daa520;
-    font-family: 'Share Tech Mono', monospace;
-    font-size: 1.2rem;
-    margin-bottom: 20px;
-}
-
-.btn-buy {
-    background: transparent;
-    border: 1px solid #fff;
-    color: #fff;
-    padding: 10px 25px;
-    cursor: pointer;
-    font-family: 'Share Tech Mono', monospace;
-    transition: all 0.3s;
-    font-weight: bold;
-    letter-spacing: 1px;
-}
-
-.btn-buy:hover {
-    background: #daa520;
-    border-color: #daa520;
-    color: #000;
-}
-
-/* =========================================
-   2. ESTILOS PARA "GRID HÍBRIDO" (PROCESO)
-   ========================================= */
-.process-card {
-    position: relative;
-    width: 100%;
-    height: 100%; 
-    min-height: 400px; 
-    overflow: hidden;
-    border: 1px solid #333;
-}
-
-.process-card img, 
-.process-card video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    filter: grayscale(100%) contrast(1.2); 
-    transition: transform 0.5s ease;
-}
-
-.process-card:hover img,
-.process-card:hover video {
-    transform: scale(1.1);
-    filter: grayscale(0%);
-}
-
-.process-overlay {
-    position: absolute;
-    bottom: 0; left: 0; width: 100%; height: 100%;
-    background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, transparent 60%);
-    display: flex; align-items: flex-end; justify-content: center;
-    padding: 30px 20px;
-    text-align: center;
-}
-
-.process-overlay span {
-    font-family: 'Impact', sans-serif;
-    color: #daa520;
-    font-size: 1.8rem;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    text-shadow: 2px 2px 4px #000;
-    line-height: 1.1;
-}
-
-/* =========================================
-   3. ESTILOS PARA MOTOS (PROYECTOS) - ¡NUEVO!
-   ========================================= */
+/* --- ESTILOS MOTOS / PROYECTOS (ESTO ES LO QUE NECESITAS AHORA) --- */
 .project-card {
     background: #0a0a0a;
     border: 1px solid #333;
@@ -165,75 +68,15 @@
     display: flex;
     flex-direction: column;
 }
+.project-card:hover { transform: translateY(-5px); border-color: #daa520; }
 
-.project-card:hover {
-    transform: translateY(-5px);
-    border-color: #daa520;
-}
+.project-media { width: 100%; height: 400px; overflow: hidden; position: relative; }
+.project-media img, .project-media video { width: 100%; height: 100%; object-fit: cover; filter: grayscale(40%); transition: filter 0.3s ease; }
+.project-card:hover .project-media img, .project-card:hover .project-media video { filter: grayscale(0%); }
 
-/* Contenedor de Video o Foto */
-.project-media {
-    width: 100%;
-    height: 400px; /* ESTO ES CLAVE: Altura fija para que todos sean iguales */
-    overflow: hidden;
-    position: relative;
-}
+.project-info { padding: 25px; text-align: left; background-color: #080808; flex-grow: 1; }
+.project-info h3 { color: #daa520; font-family: 'Impact', sans-serif; letter-spacing: 1px; font-size: 1.4rem; margin-bottom: 10px; }
+.project-info p { color: #ccc; font-size: 0.95rem; font-family: 'Rajdhani', sans-serif; margin-bottom: 20px; }
 
-.project-media img,
-.project-media video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Llena el cuadro sin deformarse */
-    filter: grayscale(40%);
-    transition: filter 0.3s ease;
-}
-
-.project-card:hover .project-media img,
-.project-card:hover .project-media video {
-    filter: grayscale(0%);
-}
-
-/* Información del Proyecto */
-.project-info {
-    padding: 25px;
-    text-align: left;
-    background-color: #080808;
-    flex-grow: 1; /* Asegura que la caja de texto llene el espacio */
-}
-
-.project-info h3 {
-    color: #daa520;
-    font-family: 'Impact', sans-serif;
-    letter-spacing: 1px;
-    font-size: 1.4rem;
-    margin-bottom: 10px;
-    text-transform: uppercase;
-}
-
-.project-info p {
-    color: #ccc;
-    font-size: 0.95rem;
-    font-family: 'Rajdhani', sans-serif;
-    margin-bottom: 20px;
-    line-height: 1.4;
-}
-
-/* Botón de Cotizar */
-.btn-quote {
-    width: 100%;
-    background: transparent;
-    border: 1px solid #555;
-    color: #fff;
-    padding: 12px;
-    cursor: pointer;
-    font-family: 'Share Tech Mono', monospace;
-    transition: all 0.3s;
-    text-transform: uppercase;
-    font-weight: bold;
-}
-
-.btn-quote:hover {
-    background: #daa520;
-    border-color: #daa520;
-    color: #000;
-}
+.btn-quote { width: 100%; background: transparent; border: 1px solid #555; color: #fff; padding: 12px; cursor: pointer; font-family: 'Share Tech Mono', monospace; transition: all 0.3s; text-transform: uppercase; font-weight: bold; }
+.btn-quote:hover { background: #daa520; border-color: #daa520; color: #000; }

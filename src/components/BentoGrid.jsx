@@ -11,7 +11,7 @@ import imgAnillo1 from '../assets/venadito1.webp';
 import imgAnillo2 from '../assets/venadito2.webp'; 
 
 // --- MOTOS ---
-import videoMoto from '../assets/videomotos2.mp4'; 
+import videoMoto from '../assets/videomoto2.mp4'; 
 import imgMotoHoriz1 from '../assets/fotomoto.webp'; 
 import imgMotoHoriz2 from '../assets/fotomoto2.webp'; 
 
