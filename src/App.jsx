@@ -1,39 +1,36 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-// --- IMPORTACIONES DE COMPONENTES (Barra, Pie, Botón) ---
+// --- COMPONENTES ---
 import Header from './components/Header';
 import Footer from './components/Footer';
 import WhatsAppBtn from './components/WhatsAppBtn'; 
 
-// --- IMPORTACIONES DE PÁGINAS ---
+// --- PÁGINAS ---
 import Home from './pages/Home';
 import Accesorios from './pages/Accesorios';
-import Motos from './pages/Motos'; // <--- 1. IMPORTAS LA NUEVA PÁGINA DE MOTOS
+import Escultura from './pages/Escultura';
+import Fustes from './pages/Fustes'; 
+import Reciclados from './pages/Reciclados'; // <--- AQUÍ ESTABA EL ERROR (Antes decía Fustes)
 
 function App() {
   return (
     <BrowserRouter>
       <div className="App">
         
-        {/* Navegación fija arriba */}
         <Header />
 
-        {/* Sistema de Rutas */}
         <Routes>
           <Route path="/" element={<Home />} />
           
           {/* Rutas de páginas internas */}
-          <Route path="/accesorios" element={<Accesorios />} />    
-          <Route path="/motos" element={<Motos />} /> {/* <--- 2. AGREGAS LA RUTA */}
-          
-          {/* Cuando crees las demás, las agregas así:
+          <Route path="/accesorios" element={<Accesorios />} />
           <Route path="/escultura" element={<Escultura />} />
+          <Route path="/fustes" element={<Fustes />} />
           <Route path="/reciclados" element={<Reciclados />} />
-          */}
+          
         </Routes>
 
-        {/* Elementos fijos globales */}
         <WhatsAppBtn />
         <Footer />
         
