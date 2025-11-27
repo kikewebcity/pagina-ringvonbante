@@ -167,3 +167,32 @@
     /* Controles */
     .swiper-button-next, .swiper-button-prev { display: none !important; }
 }
+
+/* --- VIDEO DE FONDO EN HERO --- */
+.video-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Llena la pantalla sin deformarse */
+    z-index: 0; /* Se va al fondo */
+    opacity: 0.6; /* Un poco transparente para que se funda con el negro */
+}
+
+/* Aseguramos que el contenido (Logo/Texto) esté encima del video */
+.intro-content-wrapper {
+    position: relative;
+    z-index: 2; /* Encima del video */
+}
+
+/* Capa oscura opcional para que el video no compita con el logo */
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5); /* Oscurece el video un 50% */
+    z-index: 1;
+}

@@ -8,32 +8,35 @@ import { Autoplay, Navigation, Pagination, EffectFade } from 'swiper/modules';
 import './HeroSlider.css';
 
 // ==========================================
-// 1. IMPORTACIÓN DE IMÁGENES
+// 1. IMPORTACIÓN DE ASSETS
 // ==========================================
-import logoImg from '../assets/logoring.jpg';
 
-// Fondo Intro
-const bannerIntro = "https://www.transparenttextures.com/patterns/black-felt.png";
+// --- VIDEO DE INTRODUCCIÓN ---
+// Asegúrate de que este archivo exista en tu carpeta assets
+import videoIntro from '../assets/videointro.mp4'; 
 
-// Productos
+// --- BANNERS DE PRODUCTOS ---
 import bannerAnillo from '../assets/banneraccesorios.webp';       
 import bannerMoto from '../assets/bannermoto.webp'; 
 import bannerEscultura from '../assets/bannerescultura.webp'; 
 import bannerFustes from '../assets/bannerfuste.webp';        
-import bannerReciclados from '../assets/bannerreciclados.webp';     
-
+import bannerReciclados from '../assets/reciclado1.webp';     
 
 const HeroSlider = () => {
   const slidesData = [
-    // --- 1. INTRO (Este se queda igual, pantalla completa) ---
+    // ---------------------------------------------------------
+    // 1. INTRO (VIDEO DE FONDO - SIN LOGO DE IMAGEN)
+    // ---------------------------------------------------------
     {
       id: 1,
       type: 'intro', 
-      logo: logoImg, 
       phrase: "El espíritu indomable. Hecho a mano. Hecho para durar.",
-      bgImage: bannerIntro
+      video: videoIntro, 
     },
-    // --- 2. ACCESORIOS ---
+    
+    // ---------------------------------------------------------
+    // 2. PRODUCTOS (PANTALLA DIVIDIDA)
+    // ---------------------------------------------------------
     {
       id: 2,
       type: 'product',
@@ -43,7 +46,6 @@ const HeroSlider = () => {
       link: "/accesorios",
       bgImage: bannerAnillo,
     },
-    // --- 3. MOTOS ELÉCTRICAS ---
     {
       id: 3,
       type: 'product',
@@ -53,7 +55,6 @@ const HeroSlider = () => {
       link: "/motos",
       bgImage: bannerMoto,
     },
-    // --- 4. ESCULTURAS ---
     {
       id: 4,
       type: 'product',
@@ -63,7 +64,6 @@ const HeroSlider = () => {
       link: "/escultura",
       bgImage: bannerEscultura,
     },
-    // --- 5. FUSTES ---
     {
       id: 5,
       type: 'product',
@@ -73,7 +73,6 @@ const HeroSlider = () => {
       link: "/fustes",
       bgImage: bannerFustes,
     },
-    // --- 6. RECICLADOS ---
     {
       id: 6,
       type: 'product',
@@ -93,31 +92,48 @@ const HeroSlider = () => {
         effect={'fade'}
         navigation={true}
         pagination={{ clickable: true }}
-        autoplay={{ delay: 7000, disableOnInteraction: false }}
+        autoplay={{ delay: 8000, disableOnInteraction: false }}
         modules={[Autoplay, Navigation, Pagination, EffectFade]}
         className="mySwiper"
       >
         {slidesData.map((slide) => (
           <SwiperSlide key={slide.id}>
+            
+            {/* --- LÓGICA PARA EL SLIDE DE INTRO --- */}
             {slide.type === 'intro' ? (
-              // --- SLIDE INTRO (Pantalla Completa) ---
-              <div className="slide-content intro-slide" style={{ backgroundImage: `url(${slide.bgImage})`, backgroundColor: '#111' }}>
+              <div className="slide-content intro-slide" style={{ backgroundColor: '#000' }}>
+                  
+                  {/* 1. EL VIDEO DE FONDO */}
+                  <video 
+                    className="video-background"
+                    src={slide.video} 
+                    autoPlay 
+                    muted 
+                    loop 
+                    playsInline 
+                  />
+                  
+                  {/* 2. CAPA OSCURA */}
+                  <div className="video-overlay"></div>
+
+                  {/* 3. CONTENIDO (TEXTO LIMPIO) */}
                   <div className="intro-content-wrapper">
-                      <img src={slide.logo} alt="Ringbonvante Logo" className="animated-logo" style={{maxWidth: '300px'}} />
+                      {/* Aquí reemplazamos la imagen por texto */}
+                      <h1 className="brand-name-slide">RINGBONVANTE</h1>
                       <h2 className="intro-phrase">{slide.phrase}</h2>
                   </div>
               </div>
             ) : (
-              // --- SLIDE PRODUCTO (DIVIDIDO 50/50) ---
+              
+              // --- LÓGICA PARA SLIDES DE PRODUCTOS (SPLIT SCREEN) ---
               <div className="split-slide-container">
-                
-                {/* Lado Izquierdo: IMAGEN */}
+                {/* Lado Izquierdo: Imagen */}
                 <div 
                   className="split-image-side" 
                   style={{ backgroundImage: `url(${slide.bgImage})` }}
                 ></div>
-
-                {/* Lado Derecho: TEXTO */}
+                
+                {/* Lado Derecho: Texto */}
                 <div className="split-text-side">
                     <div className="product-content-wrapper">
                         <h3>{slide.title}</h3>
@@ -126,8 +142,8 @@ const HeroSlider = () => {
                         <a href={slide.link} className="slide-btn">{slide.buttonText}</a>
                     </div>
                 </div>
-
               </div>
+
             )}
           </SwiperSlide>
         ))}
