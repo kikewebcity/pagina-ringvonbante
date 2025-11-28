@@ -4,7 +4,7 @@ import { FaWhatsapp } from 'react-icons/fa'; // Asegúrate de tener react-icons 
 const WhatsAppBtn = () => {
   return (
     <a 
-      href="https://wa.me/5215512345678?text=Hola,%20me%20interesa%20una%20pieza%20de%20Ringvonbante" 
+      href="https://wa.me/525951156896?text=Hola,%20me%20interesa%20una%20pieza%20de%20Ringvonbante" 
       target="_blank" 
       rel="noopener noreferrer"
       className="whatsapp-float"
