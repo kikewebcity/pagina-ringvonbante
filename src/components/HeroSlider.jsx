@@ -8,40 +8,39 @@ import { Autoplay, Navigation, Pagination, EffectFade } from 'swiper/modules';
 import './HeroSlider.css';
 
 // ==========================================
-// 1. IMPORTACIÓN DE ASSETS
+// 1. IMPORTACIONES
 // ==========================================
 
-// --- VIDEO DE INTRODUCCIÓN ---
-// Asegúrate de que este archivo exista en tu carpeta assets
+// --- TU LOGO NUEVO (PNG Transparente) ---
+import logoBlanco from '../assets/logoblanco.png'; 
+
+// --- VIDEO INTRO ---
 import videoIntro from '../assets/videointro.mp4'; 
 
-// --- BANNERS DE PRODUCTOS ---
-import bannerAnillo from '../assets/banneraccesorios.webp';       
-import bannerMoto from '../assets/bannermoto.webp'; 
+// --- IMÁGENES PRODUCTOS ---
+import bannerAnillo from '../assets/banneranillo.webp';       
+import bannerMoto from '../assets/tanque.webp'; 
 import bannerEscultura from '../assets/bannerescultura.webp'; 
 import bannerFustes from '../assets/bannerfuste.webp';        
-import bannerReciclados from '../assets/reciclado1.webp';     
+import bannerReciclados from '../assets/reciclados.webp';     
 
 const HeroSlider = () => {
   const slidesData = [
-    // ---------------------------------------------------------
-    // 1. INTRO (VIDEO DE FONDO - SIN LOGO DE IMAGEN)
-    // ---------------------------------------------------------
+    // --- 1. INTRO (VIDEO + LOGO FLOTANTE) ---
     {
       id: 1,
       type: 'intro', 
       phrase: "El espíritu indomable. Hecho a mano. Hecho para durar.",
       video: videoIntro, 
+      logo: logoBlanco, // Usamos la variable del logo aquí
     },
     
-    // ---------------------------------------------------------
-    // 2. PRODUCTOS (PANTALLA DIVIDIDA)
-    // ---------------------------------------------------------
+    // --- 2. PRODUCTOS ---
     {
       id: 2,
       type: 'product',
       title: "COLECCIÓN ORIGEN",
-      subtitle: "Talismanes nacidos de la tierra, forjados en plata para el espíritu.",
+      subtitle: "Talismanes nacidos de la tierra, forjados en plata.",
       buttonText: "VER PIEZAS",
       link: "/accesorios",
       bgImage: bannerAnillo,
@@ -50,7 +49,7 @@ const HeroSlider = () => {
       id: 3,
       type: 'product',
       title: "VOLTAJE RETRO",
-      subtitle: "Estética ruidosa. Motor silencioso. El futuro tiene alma clásica.",
+      subtitle: "Estética ruidosa. Motor silencioso.",
       buttonText: "VER MODELOS",
       link: "/motos",
       bgImage: bannerMoto,
@@ -59,7 +58,7 @@ const HeroSlider = () => {
       id: 4,
       type: 'product',
       title: "ARTE MONUMENTAL",
-      subtitle: "Metal en tensión. Obras que desafían la gravedad y la norma.",
+      subtitle: "Metal en tensión. Obras que desafían la gravedad.",
       buttonText: "EXPLORAR GALERÍA",
       link: "/escultura",
       bgImage: bannerEscultura,
@@ -68,7 +67,7 @@ const HeroSlider = () => {
       id: 5,
       type: 'product',
       title: "FUSTES & ESTRUCTURA",
-      subtitle: "La columna vertebral del diseño. Soporte con carácter y fuerza.",
+      subtitle: "La columna vertebral del diseño.",
       buttonText: "VER FUSTES",
       link: "/fustes",
       bgImage: bannerFustes,
@@ -77,7 +76,7 @@ const HeroSlider = () => {
       id: 6,
       type: 'product',
       title: "VIDA INDUSTRIAL",
-      subtitle: "Resurrección de la materia. Lujo nacido del olvido industrial.",
+      subtitle: "Resurrección de la materia. Lujo cyberpunk.",
       buttonText: "VER PROYECTOS",
       link: "/reciclados",
       bgImage: bannerReciclados,
@@ -103,7 +102,7 @@ const HeroSlider = () => {
             {slide.type === 'intro' ? (
               <div className="slide-content intro-slide" style={{ backgroundColor: '#000' }}>
                   
-                  {/* 1. EL VIDEO DE FONDO */}
+                  {/* VIDEO DE FONDO */}
                   <video 
                     className="video-background"
                     src={slide.video} 
@@ -113,27 +112,33 @@ const HeroSlider = () => {
                     playsInline 
                   />
                   
-                  {/* 2. CAPA OSCURA */}
+                  {/* CAPA OSCURA (Para que resalte el logo) */}
                   <div className="video-overlay"></div>
 
-                  {/* 3. CONTENIDO (TEXTO LIMPIO) */}
+                  {/* CONTENIDO CENTRAL */}
                   <div className="intro-content-wrapper">
-                      {/* Aquí reemplazamos la imagen por texto */}
-                      <h1 className="brand-name-slide">RINGBONVANTE</h1>
+                      
+                      {/* --- AQUÍ ESTÁ EL LOGO --- */}
+                      <img 
+                        src={slide.logo} 
+                        alt="Ringvonbante" 
+                        className="animated-logo" 
+                        // Ajusta el ancho (width) según qué tan grande lo quieras
+                        style={{ maxWidth: '400px', width: '80%', height: 'auto', marginBottom: '20px' }} 
+                      />
+                      
+                      {/* Frase abajo del logo */}
                       <h2 className="intro-phrase">{slide.phrase}</h2>
                   </div>
               </div>
             ) : (
               
-              // --- LÓGICA PARA SLIDES DE PRODUCTOS (SPLIT SCREEN) ---
+              // --- LÓGICA PARA PRODUCTOS (Igual que antes) ---
               <div className="split-slide-container">
-                {/* Lado Izquierdo: Imagen */}
                 <div 
                   className="split-image-side" 
                   style={{ backgroundImage: `url(${slide.bgImage})` }}
                 ></div>
-                
-                {/* Lado Derecho: Texto */}
                 <div className="split-text-side">
                     <div className="product-content-wrapper">
                         <h3>{slide.title}</h3>
