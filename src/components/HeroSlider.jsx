@@ -18,11 +18,11 @@ import logoBlanco from '../assets/logoblanco.png';
 import videoIntro from '../assets/videointro.mp4'; 
 
 // --- IMÁGENES PRODUCTOS ---
-import bannerAnillo from '../assets/banneranillo.webp';       
-import bannerMoto from '../assets/tanque.webp'; 
+import bannerAnillo from '../assets/banneraccesorios.webp';       
+import bannerMoto from '../assets/bannermoto.webp'; 
 import bannerEscultura from '../assets/bannerescultura.webp'; 
 import bannerFustes from '../assets/bannerfuste.webp';        
-import bannerReciclados from '../assets/reciclados.webp';     
+import bannerReciclados from '../assets/reciclado1.webp';     
 
 const HeroSlider = () => {
   const slidesData = [

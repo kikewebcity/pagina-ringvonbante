@@ -6,7 +6,7 @@ import './Pages.css';
 // 1. IMPORTACIÓN DE TU MATERIAL NUEVO
 // ==========================================
 // Usamos el banner que ya tenías, o puedes cambiarlo por una de las nuevas fotos horizontales
-import banner from '../assets/tanque.webp'; 
+import banner from '../assets/tanque.jpg'; 
 
 // --- TUS 3 VIDEOS NUEVOS ---
 import video1 from '../assets/videomoto1.mp4'; 
