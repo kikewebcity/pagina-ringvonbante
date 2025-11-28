@@ -127,6 +127,7 @@
     background-color: #111;
     border: 1px solid #333;
     height: 100%; /* Asegura que ocupe toda la celda */
+    cursor: pointer;
 }
 
 .bento-media {

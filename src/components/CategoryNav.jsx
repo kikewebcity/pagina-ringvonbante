@@ -68,15 +68,11 @@ const CategoryNav = () => {
             onClick={() => scrollToSection(cat.targetId)}
           >
             <div className="cat-image-wrapper">
-              {/* Si la imagen no carga, mostramos un cuadro gris de respaldo */}
-              {cat.img ? (
-                <img src={cat.img} alt={cat.title} />
-              ) : (
-                <div style={{width:'100%', height:'100%', background:'#333'}}></div>
-              )}
+              <img src={cat.img} alt={cat.title} />
             </div>
+            {/* El CSS ahora posicionará esto encima de la imagen */}
             <span className="cat-title">{cat.title}</span>
-            <span className="cat-arrow">ir a sección &darr;</span>
+            <span className="cat-arrow">ver &rarr;</span>
           </div>
         ))}
       </div>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import './BentoGrid.css';
 
 // ==========================================
@@ -25,94 +26,91 @@ import fusteBasket from '../assets/fuste1.webp';
 import fustePlata from '../assets/fuste2.webp';   
 import fusteBlack from '../assets/fuste3.webp';   
 
-// --- RECICLADOS (TUS NUEVAS IMÁGENES) ---
-// Asegúrate de que los nombres coincidan con los archivos en tu carpeta assets
-import recicladoGuitarra1 from '../assets/reciclado1.webp'; // Foto con fondo rosa
-import recicladoGuitarra2 from '../assets/reciclado2.webp'; // Close-up guitarra
-import recicladoCabeza1 from '../assets/reciclado3.webp';     // Cabeza mirando abajo
-import recicladoCabeza2 from '../assets/reciclado4.webp';     // Cabeza mirando frente
-
+// --- RECICLADOS ---
+import recicladoGuitarra1 from '../assets/reciclado1.webp'; 
+import recicladoGuitarra2 from '../assets/reciclado2.webp'; 
+import recicladoCabeza1 from '../assets/reciclado3.webp';     
+import recicladoCabeza2 from '../assets/reciclado4.webp';     
 
 const BentoGrid = () => {
+  
+  const navigate = useNavigate(); 
+
+  const handleNavigate = (path) => {
+    navigate(path);
+    window.scrollTo(0, 0); 
+  };
+
   const sections = [
-    // ---------------------------------------------------------
     // 1. ACCESORIOS
-    // ---------------------------------------------------------
     {
       id: 'accesorios',
       title: 'ACCESORIOS',
-      layout: 'layout-3-cols', 
-      description: "Cada pieza es un diálogo entre la crudeza del material y la precisión del diseño. Plata de ley 925, piedras en bruto y acabados que evolucionan con el uso.",
+      path: '/accesorios',
+      layout: 'layout-3-cols',
+      description: "Plata de ley 925, piedras en bruto y acabados que evolucionan.",
       items: [
-        { type: 'video', src: videoAccesorios, alt: 'Video Taller Joyería' }, 
-        { type: 'image', src: imgAnillo1, alt: 'Detalle Anillo' },
-        { type: 'image', src: imgAnillo2, alt: 'Pieza en contexto' },
+        { type: 'video', src: videoAccesorios, alt: 'Video Taller' }, 
+        { type: 'image', src: imgAnillo1, alt: 'Detalle' },
+        { type: 'image', src: imgAnillo2, alt: 'Contexto' },
       ]
     },
 
-    // ---------------------------------------------------------
-    // 2. MOTOS ELÉCTRICAS
-    // ---------------------------------------------------------
+    // 2. MOTOS
     {
       id: 'motos',
       title: 'MOTOS ELÉCTRICAS',
-      layout: 'layout-video-left', 
-      description: "Ingeniería silenciosa con estética ruidosa. Baterías de litio de alto rendimiento ocultas en chasis clásicos modificados a mano.",
+      path: '/motos',
+      layout: 'layout-video-left',
+      description: "Ingeniería silenciosa con estética ruidosa.",
       items: [
-        { type: 'video', src: videoMoto, alt: 'Moto en movimiento' },
-        { type: 'image', src: imgMotoHoriz1, alt: 'Moto Perfil' },
-        { type: 'image', src: imgMotoHoriz2, alt: 'Detalle Motor/Tanque' },
+         { type: 'video', src: videoMoto, alt: 'Moto' },
+         { type: 'image', src: imgMotoHoriz1, alt: 'Perfil' },
+         { type: 'image', src: imgMotoHoriz2, alt: 'Tanque' },
       ]
     },
 
-    // ---------------------------------------------------------
     // 3. ESCULTURA
-    // ---------------------------------------------------------
     {
       id: 'escultura',
       title: 'ESCULTURA MONUMENTAL',
+      path: '/escultura',
       layout: 'layout-3-cols', 
-      description: "Obras de gran formato diseñadas para transformar el espacio. Estructuras de acero y bronce que desafían la estática.",
+      description: "Obras de gran formato que desafían la estática.",
       items: [
-        { type: 'video', src: videoEscultura, alt: 'Escultura en movimiento' },
-        { type: 'image', src: imgEscultura1, alt: 'Detalle Soldadura' },
-        { type: 'image', src: imgEscultura2, alt: 'Textura Metal' },
+         { type: 'video', src: videoEscultura, alt: 'Video' },
+         { type: 'image', src: imgEscultura1, alt: 'Foto 1' },
+         { type: 'image', src: imgEscultura2, alt: 'Foto 2' },
       ]
     },
 
-    // ---------------------------------------------------------
     // 4. FUSTES
-    // ---------------------------------------------------------
     {
       id: 'fustes',
       title: 'FUSTES & ESTRUCTURA',
+      path: '/fustes',
       layout: 'layout-3-cols', 
-      description: "La columna vertebral de la montura. Piezas estructurales convertidas en lienzos de metal, plata y oro.",
+      description: "La columna vertebral del diseño arquitectónico.",
       items: [
-        { type: 'image', src: fusteBasket, alt: 'Fuste detalle Jugador' },
-        { type: 'image', src: fustePlata, alt: 'Fuste Plateado Cincelado' },
-        { type: 'image', src: fusteBlack, alt: 'Fuste Negro con Calaveras' },
+         { type: 'image', src: fusteBasket, alt: 'Fuste 1' },
+         { type: 'image', src: fustePlata, alt: 'Fuste 2' },
+         { type: 'image', src: fusteBlack, alt: 'Fuste 3' },
       ]
     },
 
-    // ---------------------------------------------------------
-    // 5. RECICLADOS (NUEVO LAYOUT DE 4 COLUMNAS)
-    // ---------------------------------------------------------
+    // 5. RECICLADOS (AQUÍ ESTABA EL ERROR)
     {
       id: 'reciclados',
       title: 'VIDA INDUSTRIAL',
-      
-      // Usamos el nuevo layout de 4 columnas
-      layout: 'layout-4-cols', 
-      
-      description: "Nada se pierde, todo se transforma. Rescatamos piezas industriales y mecanismos olvidados para darles una segunda vida como arte funcional cyberpunk.",
-      
+      path: '/reciclados',
+      layout: 'layout-4-cols', // Usamos 4 columnas para tus 4 fotos
+      description: "Rescatamos piezas industriales para darles una segunda vida.",
       items: [
-        // Las 4 fotos verticales una al lado de la otra
-        { type: 'image', src: recicladoGuitarra1, alt: 'Guitarra Steampunk con modelo' },
-        { type: 'image', src: recicladoCabeza1, alt: 'Casco Biomecánico Perfil' },
-        { type: 'image', src: recicladoGuitarra2, alt: 'Detalle Mecanismo Guitarra' },
-        { type: 'image', src: recicladoCabeza2, alt: 'Casco Biomecánico Frente' },
+         // Corregido: Usamos las variables que sí importaste arriba
+         { type: 'image', src: recicladoGuitarra1, alt: 'Guitarra 1' },
+         { type: 'image', src: recicladoCabeza1, alt: 'Cabeza 1' },
+         { type: 'image', src: recicladoGuitarra2, alt: 'Guitarra 2' },
+         { type: 'image', src: recicladoCabeza2, alt: 'Cabeza 2' },
       ]
     }
   ];
@@ -123,12 +121,22 @@ const BentoGrid = () => {
         <section id={section.id} key={section.id} className="bento-section">
           
           <div className="bento-header">
-             <h2 className="bento-title">{section.title}</h2>
+             <h2 
+                className="bento-title" 
+                onClick={() => handleNavigate(section.path)}
+                style={{cursor: 'pointer'}}
+             >
+                {section.title}
+             </h2>
           </div>
           
           <div className={`bento-grid ${section.layout}`}>
             {section.items.map((item, index) => (
-              <div key={index} className={`bento-item item-${index + 1}`}>
+              <div 
+                key={index} 
+                className={`bento-item item-${index + 1}`}
+                onClick={() => handleNavigate(section.path)}
+              >
                 {item.type === 'video' ? (
                   <video 
                     src={item.src} 
@@ -139,9 +147,9 @@ const BentoGrid = () => {
                   <img src={item.src} alt={item.alt} className="bento-media" />
                 )}
                 
-                {item.type !== 'video' && (
-                    <div className="bento-overlay"><span>+</span></div>
-                )}
+                <div className="bento-overlay">
+                    <span style={{fontSize: '1.5rem', letterSpacing: '2px'}}>VER COLECCIÓN</span>
+                </div>
               </div>
             ))}
           </div>
@@ -149,6 +157,13 @@ const BentoGrid = () => {
           {section.description && (
             <div className="bento-description-box">
                 <p>{section.description}</p>
+                <button 
+                    className="slide-btn" 
+                    style={{marginTop: '20px', fontSize: '0.9rem'}}
+                    onClick={() => handleNavigate(section.path)}
+                >
+                    EXPLORAR {section.title}
+                </button>
             </div>
           )}
 
