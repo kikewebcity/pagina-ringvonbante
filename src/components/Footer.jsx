@@ -58,7 +58,12 @@ const Footer = () => {
       
       <div className="footer-bottom">
         <p>&copy; 2025 RINGVONBANTE. Todos los derechos reservados.</p>
-      </div>
+  
+  <Link to="/privacidad" style={{fontSize: '0.8rem', color: '#666', marginTop: '5px', display: 'block'}}>
+    Política de Privacidad
+  </Link>
+</div>
+  
     </footer>
   );
 };
