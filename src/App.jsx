@@ -5,7 +5,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import WhatsAppBtn from './components/WhatsAppBtn'; 
-import CookieBanner from './components/CookieBanner'; // Importado una sola vez aquí
+import CookieBanner from './components/CookieBanner'; 
 
 // --- IMPORTACIONES DE PÁGINAS ---
 import Home from './pages/Home';
