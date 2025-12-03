@@ -8,39 +8,40 @@ import { Autoplay, Navigation, Pagination, EffectFade } from 'swiper/modules';
 import './HeroSlider.css';
 
 // ==========================================
-// 1. IMPORTACIONES
+// 1. IMPORTACIÓN DE ASSETS
 // ==========================================
 
-// --- TU LOGO NUEVO (PNG Transparente) ---
-import logoBlanco from '../assets/logoblanco.png'; 
-
-// --- VIDEO INTRO ---
+// --- VIDEO DE INTRO ---
 import videoIntro from '../assets/videointro.mp4'; 
 
-// --- IMÁGENES PRODUCTOS ---
+// --- BANNERS DE PRODUCTOS ---
 import bannerAnillo from '../assets/banneraccesorios.webp';       
-import bannerMoto from '../assets/bannermoto.webp'; 
+import bannerMoto from '../assets/fotomoto2.webp'; 
 import bannerEscultura from '../assets/bannerescultura.webp'; 
 import bannerFustes from '../assets/bannerfuste.webp';        
-import bannerReciclados from '../assets/reciclado1.webp';     
+import bannerReciclados from '../assets/bannerreciclados.webp';     
 
 const HeroSlider = () => {
   const slidesData = [
-    // --- 1. INTRO (VIDEO + LOGO FLOTANTE) ---
+    // ---------------------------------------------------------
+    // 1. INTRO (VIDEO DE FONDO + TEXTO GIGANTE)
+    // ---------------------------------------------------------
     {
       id: 1,
       type: 'intro', 
+      title: "RINGVONBANTE", // Texto principal
       phrase: "El espíritu indomable. Hecho a mano. Hecho para durar.",
       video: videoIntro, 
-      logo: logoBlanco, // Usamos la variable del logo aquí
     },
     
-    // --- 2. PRODUCTOS ---
+    // ---------------------------------------------------------
+    // 2. PRODUCTOS (DISEÑO PANTALLA DIVIDIDA)
+    // ---------------------------------------------------------
     {
       id: 2,
       type: 'product',
       title: "COLECCIÓN ORIGEN",
-      subtitle: "Talismanes nacidos de la tierra, forjados en plata.",
+      subtitle: "Talismanes nacidos de la tierra, forjados en plata para el espíritu.",
       buttonText: "VER PIEZAS",
       link: "/accesorios",
       bgImage: bannerAnillo,
@@ -49,7 +50,7 @@ const HeroSlider = () => {
       id: 3,
       type: 'product',
       title: "VOLTAJE RETRO",
-      subtitle: "Estética ruidosa. Motor silencioso.",
+      subtitle: "Estética ruidosa. Motor silencioso. El futuro tiene alma clásica.",
       buttonText: "VER MODELOS",
       link: "/motos",
       bgImage: bannerMoto,
@@ -58,7 +59,7 @@ const HeroSlider = () => {
       id: 4,
       type: 'product',
       title: "ARTE MONUMENTAL",
-      subtitle: "Metal en tensión. Obras que desafían la gravedad.",
+      subtitle: "Metal en tensión. Obras que desafían la gravedad y la norma.",
       buttonText: "EXPLORAR GALERÍA",
       link: "/escultura",
       bgImage: bannerEscultura,
@@ -67,7 +68,7 @@ const HeroSlider = () => {
       id: 5,
       type: 'product',
       title: "FUSTES & ESTRUCTURA",
-      subtitle: "La columna vertebral del diseño.",
+      subtitle: "La columna vertebral del diseño. Soporte con carácter y fuerza.",
       buttonText: "VER FUSTES",
       link: "/fustes",
       bgImage: bannerFustes,
@@ -76,7 +77,7 @@ const HeroSlider = () => {
       id: 6,
       type: 'product',
       title: "VIDA INDUSTRIAL",
-      subtitle: "Resurrección de la materia. Lujo cyberpunk.",
+      subtitle: "Resurrección de la materia. Lujo nacido del olvido industrial.",
       buttonText: "VER PROYECTOS",
       link: "/reciclados",
       bgImage: bannerReciclados,
@@ -98,11 +99,11 @@ const HeroSlider = () => {
         {slidesData.map((slide) => (
           <SwiperSlide key={slide.id}>
             
-            {/* --- LÓGICA PARA EL SLIDE DE INTRO --- */}
+            {/* --- CASO A: SLIDE DE INTRO --- */}
             {slide.type === 'intro' ? (
               <div className="slide-content intro-slide" style={{ backgroundColor: '#000' }}>
                   
-                  {/* VIDEO DE FONDO */}
+                  {/* Video de Fondo */}
                   <video 
                     className="video-background"
                     src={slide.video} 
@@ -112,33 +113,30 @@ const HeroSlider = () => {
                     playsInline 
                   />
                   
-                  {/* CAPA OSCURA (Para que resalte el logo) */}
+                  {/* Capa oscura (Filtro suave) */}
                   <div className="video-overlay"></div>
 
-                  {/* CONTENIDO CENTRAL */}
+                  {/* Contenido Central (TEXTO LIMPIO) */}
                   <div className="intro-content-wrapper">
+                      {/* Título de Marca Gigante */}
+                      <h1 className="brand-name-slide">{slide.title}</h1>
                       
-                      {/* --- AQUÍ ESTÁ EL LOGO --- */}
-                      <img 
-                        src={slide.logo} 
-                        alt="Ringvonbante" 
-                        className="animated-logo" 
-                        // Ajusta el ancho (width) según qué tan grande lo quieras
-                        style={{ maxWidth: '400px', width: '80%', height: 'auto', marginBottom: '20px' }} 
-                      />
-                      
-                      {/* Frase abajo del logo */}
+                      {/* Frase / Slogan */}
                       <h2 className="intro-phrase">{slide.phrase}</h2>
                   </div>
               </div>
             ) : (
               
-              // --- LÓGICA PARA PRODUCTOS (Igual que antes) ---
+              // --- CASO B: SLIDES DE PRODUCTOS (SPLIT) ---
               <div className="split-slide-container">
+                
+                {/* Mitad Izquierda: Imagen */}
                 <div 
                   className="split-image-side" 
                   style={{ backgroundImage: `url(${slide.bgImage})` }}
                 ></div>
+                
+                {/* Mitad Derecha: Texto */}
                 <div className="split-text-side">
                     <div className="product-content-wrapper">
                         <h3>{slide.title}</h3>

@@ -1,5 +1,5 @@
 /* =========================================
-   src/index.css - ESTILOS GLOBALES COMPLETOS
+   src/index.css - CÓDIGO FINAL
    ========================================= */
 
 /* 1. DIRECTIVAS DE TAILWIND */
@@ -7,15 +7,17 @@
 @tailwind components;
 @tailwind utilities;
 
-/* 2. VARIABLES GLOBALES (Fuentes y Colores) */
+/* 2. VARIABLES GLOBALES */
 :root {
-  --font-main: 'Rajdhani', sans-serif;
-  --font-tech: 'Share Tech Mono', monospace;
+  --font-main: 'Rajdhani', sans-serif;       /* Títulos */
+  --font-tech: 'Share Tech Mono', monospace; /* Detalles técnicos */
+  
   --color-gold: #daa520;
   --color-black: #000000;
+  --color-dark: #0a0a0a;
 }
 
-/* 3. CONFIGURACIÓN BASE (AQUÍ ARREGLAMOS EL FONDO NEGRO) */
+/* 3. CONFIGURACIÓN BASE */
 html {
   scroll-behavior: smooth;
 }
@@ -23,7 +25,7 @@ html {
 body {
   margin: 0;
   padding: 0;
-  background-color: var(--color-black); /* ESTO ES LO QUE FALTABA */
+  background-color: var(--color-black);
   color: #ffffff;
   font-family: var(--font-main);
   -webkit-font-smoothing: antialiased;
@@ -37,6 +39,12 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.1em;
+}
+
+p {
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  line-height: 1.6;
 }
 
 /* 5. SCROLLBAR PERSONALIZADO */
@@ -54,228 +62,175 @@ h1, h2, h3, h4, h5, h6 {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--color-gold);
 }
-
 /* =========================================
-   6. ESTILOS DEL HEADER (BARRA DE NAVEGACIÓN)
+   6. HEADER (LOGO IZQUIERDA - MENÚ DERECHA)
    ========================================= */
-.main-header {
-  background-color: var(--color-black);
-  width: 100%;
-  position: relative;
-  z-index: 1000;
-  padding: 20px 0;
-  border-bottom: 1px solid #333;
-}
-
-.header-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.brand-name {
-  font-family: var(--font-main);
-  font-size: 3rem;
-  color: #ffffff;
-  text-decoration: none;
-  letter-spacing: 4px;
-  text-transform: uppercase;
-  margin-bottom: 15px;
-  display: block;
-  transition: color 0.3s;
-}
-
-.brand-name:hover {
-  color: var(--color-gold);
-}
-
-/* Menú */
-.nav-menu {
-  width: 100%;
-}
-
-.nav-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-  flex-wrap: wrap;
-}
-
-.nav-list li a {
-  color: #ffffff;
-  text-decoration: none;
-  font-family: var(--font-tech);
-  font-size: 1rem;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  position: relative;
-  display: inline-block;
-  padding-bottom: 5px;
-  transition: color 0.3s ease;
-}
-
-/* Línea dorada animada */
-.nav-list li a::after {
-  content: '';
-  position: absolute;
-  width: 0;
-  height: 2px;
-  bottom: 0;
-  left: 0;
-  background-color: var(--color-gold);
-  transition: width 0.3s ease-in-out;
-}
-
-.nav-list li a:hover {
-  color: var(--color-gold);
-}
-
-.nav-list li a:hover::after {
-  width: 100%;
-}
-
-/* Móvil Toggle */
-.mobile-toggle {
-  display: none;
-  cursor: pointer;
-  color: white;
-}
-
-/* =========================================
-   7. ESTILOS DEL FOOTER
-   ========================================= */
-.main-footer {
-  background-color: #050505;
-  border-top: 1px solid #333;
-  padding: 60px 20px 20px;
-  color: #fff;
-  margin-top: 50px;
-}
-
-.footer-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1.5fr 1fr 1fr;
-  gap: 40px;
-  margin-bottom: 40px;
-}
-
-.footer-logo {
-  max-width: 180px;
-  margin-bottom: 20px;
-}
-
-.footer-links h4, .footer-contact h4 {
-  color: var(--color-gold);
-  font-family: var(--font-main);
-  margin-bottom: 20px;
-  letter-spacing: 2px;
-}
-
-.footer-links ul {
-  list-style: none;
-  padding: 0;
-}
-.footer-links li { margin-bottom: 10px; }
-.footer-links a { color: #ccc; text-decoration: none; transition: 0.3s; }
-.footer-links a:hover { color: var(--color-gold); }
-
-.btn-contact-footer {
-  display: inline-block;
-  background: var(--color-gold);
-  color: #000;
-  padding: 10px 20px;
-  font-weight: bold;
-  text-decoration: none;
-  margin-bottom: 20px;
-  font-family: var(--font-tech);
-}
-
-.social-icons {
-  display: flex;
-  gap: 15px;
-}
-.social-icons a { color: #fff; font-size: 1.5rem; transition: 0.3s; }
-.social-icons a:hover { color: var(--color-gold); }
-
-.footer-bottom {
-  text-align: center;
-  border-top: 1px solid #222;
-  padding-top: 20px;
-  color: #555;
-  font-size: 0.8rem;
-}
-
-/* =========================================
-   MEDIA QUERIES (MÓVIL)
-   ========================================= */
-@media (max-width: 768px) {
-  /* Header Móvil */
-  .header-container {
-    flex-direction: row;
-    justify-content: space-between;
-    padding: 15px 20px;
-  }
-  .brand-name { font-size: 1.8rem; margin-bottom: 0; }
-  .mobile-toggle { display: block; }
-
-  .nav-menu {
-    position: absolute;
-    top: 100%;
-    left: 0;
+   .main-header {
+    background-color: var(--color-black);
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.98);
-    height: 0;
-    overflow: hidden;
-    transition: height 0.4s ease;
-    border-bottom: 1px solid var(--color-gold);
+    position: relative;
+    z-index: 1000;
+    padding: 15px 0; /* Un poco más delgado para ser elegante */
+    border-bottom: 1px solid #333;
   }
-  .nav-menu.active { height: auto; padding: 20px 0; }
-  .nav-list { flex-direction: column; gap: 20px; }
-  .nav-list li a { font-size: 1.2rem; }
-
-  /* Footer Móvil */
-  .footer-container { grid-template-columns: 1fr; text-align: center; }
-  .footer-brand { display: flex; flex-direction: column; align-items: center; }
-  .social-icons { justify-content: center; }
-}
-
-
-/* =========================================
-   CORRECCIÓN PARA MENÚ MÓVIL CENTRADO
-   ========================================= */
-   @media (max-width: 768px) {
   
-    /* Aseguramos que la lista sea una columna centrada */
-    .nav-list {
-      display: flex;
-      flex-direction: column;
-      align-items: center;  /* <--- ESTO CENTRA LOS ELEMENTOS HORIZONTALMENTE */
-      justify-content: center;
-      gap: 25px;
-      width: 100%;
-      padding: 0;
-      margin: 0;
+  .header-container {
+    max-width: 1400px; /* Ancho máximo amplio */
+    margin: 0 auto;
+    padding: 0 40px; /* Espacio a los lados */
+    
+    /* AQUÍ ESTÁ EL CAMBIO CLAVE: */
+    display: flex;
+    flex-direction: row; /* Elementos en fila horizontal */
+    justify-content: space-between; /* Uno a cada extremo (Izq/Der) */
+    align-items: center; /* Centrados verticalmente */
+  }
+  
+  /* --- LOGO --- */
+  .logo-container {
+    /* Asegura que el logo no se encoja */
+    flex-shrink: 0; 
+  }
+  
+  .nav-logo-img {
+    height: 50px; /* Altura del logo */
+    width: auto;
+    display: block;
+  }
+  
+  .brand-name {
+    /* Por si usas texto en vez de imagen */
+    font-family: var(--font-main);
+    font-size: 2rem;
+    color: #ffffff;
+    text-decoration: none;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin: 0;
+  }
+  
+  .brand-name:hover {
+    color: var(--color-gold);
+  }
+  
+  /* --- MENÚ DE ESCRITORIO --- */
+  .nav-menu {
+    /* El menú ocupa solo el espacio necesario a la derecha */
+    width: auto; 
+  }
+  
+  .nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 30px; /* Espacio entre palabras */
+    align-items: center;
+  }
+  
+  .nav-list li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-family: var(--font-tech);
+    font-size: 0.95rem; /* Letra técnica y fina */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 5px;
+    transition: color 0.3s ease;
+  }
+  
+  /* Línea animada */
+  .nav-list li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--color-gold);
+    transition: width 0.3s ease-in-out;
+  }
+  
+  .nav-list li a:hover {
+    color: var(--color-gold);
+  }
+  
+  .nav-list li a:hover::after {
+    width: 100%;
+  }
+  
+  /* --- BOTÓN HAMBURGUESA (Móvil) --- */
+  .mobile-toggle {
+    display: none; /* Oculto en escritorio */
+    cursor: pointer;
+    color: white;
+  }
+  
+  /* --- REDES SOCIALES EN MENÚ (Ocultas en escritorio) --- */
+  .mobile-socials {
+    display: none;
+  }
+  
+  /* =========================================
+     MEDIA QUERIES (MÓVIL)
+     ========================================= */
+  @media (max-width: 1024px) { /* Ajuste para Tablets y Móviles */
+    
+    .header-container {
+      padding: 15px 20px;
     }
   
-    /* Aseguramos que cada item de la lista también centre su texto */
-    .nav-list li {
+    .mobile-toggle {
+      display: block; /* Aparece el botón */
+    }
+  
+    /* El menú se convierte en cajón desplegable */
+    .nav-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%; /* Ocupa todo el ancho */
+      background-color: rgba(0, 0, 0, 0.35);
+      height: 0;
+      overflow: hidden;
+      transition: height 0.4s ease;
+      border-bottom: 1px solid var(--color-gold);
+      flex-direction: column;
+    }
+  
+    .nav-menu.active {
+      height: auto; /* Se abre */
+      padding: 30px 0;
+    }
+  
+    .nav-list {
+      flex-direction: column; /* Lista vertical */
+      align-items: center;
+      gap: 25px;
       width: 100%;
-      text-align: center; /* <--- ESTO CENTRA EL TEXTO */
-      display: flex;
-      justify-content: center;
     }
   
     .nav-list li a {
-      font-size: 1.4rem; /* Un poco más grande para móvil */
-      display: inline-block;
+      font-size: 1.3rem;
+    }
+  
+    /* Redes Sociales (Visibles solo en móvil) */
+    .mobile-socials {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 30px;
+      padding-top: 20px;
+      border-top: 1px solid #333;
+      width: 80%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .mobile-socials a {
+      color: #fff;
+      font-size: 1.5rem;
     }
   }

@@ -48,7 +48,7 @@ const BentoGrid = () => {
       title: 'ACCESORIOS',
       path: '/accesorios',
       layout: 'layout-3-cols',
-      description: "Plata de ley 925, piedras en bruto y acabados que evolucionan.",
+      description: "Talismanes de poder forjados en el caos. La belleza bruta de lo imperfecto.",
       items: [
         { type: 'video', src: videoAccesorios, alt: 'Video Taller' }, 
         { type: 'image', src: imgAnillo1, alt: 'Detalle' },
