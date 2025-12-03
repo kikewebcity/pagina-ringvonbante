@@ -14,6 +14,7 @@ import Escultura from './pages/Escultura';
 import Fustes from './pages/Fustes'; 
 import Reciclados from './pages/Reciclados';
 import Contacto from './pages/Contacto';
+import Bitacora from './pages/Bitacora';
 import Privacidad from './pages/Privacidad';
 
 function App() {
@@ -33,6 +34,7 @@ function App() {
           <Route path="/reciclados" element={<Reciclados />} />
           <Route path="/contacto" element={<Contacto />} />
           <Route path="/privacidad" element={<Privacidad />} />
+          <Route path="/bitacora" element={<Bitacora />} />
           
         </Routes>
 

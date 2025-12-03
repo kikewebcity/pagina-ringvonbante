@@ -274,6 +274,95 @@
     margin-left: 20px;
 }
 
+
+/* =========================================
+   ESTILOS BITÁCORA / BLOG
+   ========================================= */
+
+   .bitacora-wrapper {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px 80px;
+}
+
+.bitacora-section {
+    margin-bottom: 80px;
+}
+
+.bitacora-section h2 {
+    color: #daa520;
+    font-family: 'Impact', sans-serif;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+
+.bitacora-section p {
+    color: #ccc;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+/* Diseño Dividido (Texto Izq - Foto Der) */
+.split-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.split-section .image-col img {
+    width: 100%;
+    border: 1px solid #333;
+    box-shadow: 10px 10px 0px rgba(218, 165, 32, 0.1); /* Sombra dorada sutil */
+}
+
+/* Diseño Foto Grande */
+.big-image-container {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.big-image-container img {
+    width: 100%;
+    height: auto;
+    border: 1px solid #444;
+    filter: grayscale(20%); /* Un toque vintage */
+}
+
+.caption-text {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 1rem !important;
+    color: #888 !important;
+    border-left: 3px solid #daa520;
+    padding-left: 15px;
+}
+
+/* Texto Centrado Final */
+.text-center-section {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.text-center-section h3 {
+    color: #fff;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+/* MÓVIL */
+@media (max-width: 768px) {
+    .split-section {
+        grid-template-columns: 1fr; /* Una sola columna */
+        gap: 30px;
+    }
+    
+    .bitacora-section h2 { font-size: 2rem; }
+}
+
 /* --- MÓVIL --- */
 @media (max-width: 768px) {
     .contact-wrapper {
