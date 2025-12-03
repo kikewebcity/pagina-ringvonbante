@@ -25,10 +25,10 @@
 .page-hero-title {
     font-family: 'Impact', sans-serif;
     color: #daa520; /* Dorado */
-    font-size: 4rem;
+    font-size: 6rem;
     letter-spacing: 4px;
     margin-bottom: 10px;
-    text-shadow: 0 0 20px rgba(0,0,0,0.8);
+    text-shadow: 0 5 15px rgba(0,0,0,0.9);
     text-transform: uppercase;
 }
 

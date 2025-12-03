@@ -12,6 +12,7 @@ import './HeroSlider.css';
 // ==========================================
 
 // --- VIDEO DE INTRO ---
+// Asegúrate de que este archivo exista en tu carpeta assets
 import videoIntro from '../assets/videointro.mp4'; 
 
 // --- BANNERS DE PRODUCTOS ---
@@ -19,7 +20,7 @@ import bannerAnillo from '../assets/banneraccesorios.webp';
 import bannerMoto from '../assets/fotomoto2.webp'; 
 import bannerEscultura from '../assets/bannerescultura.webp'; 
 import bannerFustes from '../assets/bannerfuste.webp';        
-import bannerReciclados from '../assets/bannerreciclados.webp';     
+import bannerReciclados from '../assets/reciclado1.webp';     
 
 const HeroSlider = () => {
   const slidesData = [
@@ -29,7 +30,7 @@ const HeroSlider = () => {
     {
       id: 1,
       type: 'intro', 
-      title: "RINGVONBANTE", // Texto principal
+      title: "RINGVONBANTE", // Título gigante
       phrase: "El espíritu indomable. Hecho a mano. Hecho para durar.",
       video: videoIntro, 
     },
