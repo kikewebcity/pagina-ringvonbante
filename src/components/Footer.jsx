@@ -48,8 +48,8 @@ const Footer = () => {
           </a>
           
           <div className="social-icons">
-            <a href="https://instagram.com" target="_blank" rel="noreferrer"><FaInstagram /></a>
-            <a href="https://facebook.com" target="_blank" rel="noreferrer"><FaFacebookF /></a>
+            <a href="https://www.instagram.com/ringvonbante/?hl=es" target="_blank" rel="noreferrer"><FaInstagram /></a>
+            <a href="https://www.facebook.com/ring.vonbante/" target="_blank" rel="noreferrer"><FaFacebookF /></a>
             <a href="https://tiktok.com" target="_blank" rel="noreferrer"><FaTiktok /></a>
           </div>
         </div>

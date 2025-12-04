@@ -1,33 +1,30 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-// --- IMPORTACIONES DE COMPONENTES ---
+// --- COMPONENTES ---
 import Header from './components/Header';
 import Footer from './components/Footer';
 import WhatsAppBtn from './components/WhatsAppBtn'; 
 import CookieBanner from './components/CookieBanner'; 
 
-// --- IMPORTACIONES DE PÁGINAS ---
+// --- PÁGINAS ---
 import Home from './pages/Home';
 import Accesorios from './pages/Accesorios';
 import Escultura from './pages/Escultura';
 import Fustes from './pages/Fustes'; 
 import Reciclados from './pages/Reciclados';
 import Contacto from './pages/Contacto';
-import Bitacora from './pages/Bitacora';
 import Privacidad from './pages/Privacidad';
+import Bitacora from './pages/Bitacora'; 
 
 function App() {
   return (
     <BrowserRouter>
       <div className="App">
-        
         <Header />
-
+        
         <Routes>
           <Route path="/" element={<Home />} />
-          
-          {/* Rutas de páginas internas */}
           <Route path="/accesorios" element={<Accesorios />} />
           <Route path="/escultura" element={<Escultura />} />
           <Route path="/fustes" element={<Fustes />} />
@@ -35,13 +32,11 @@ function App() {
           <Route path="/contacto" element={<Contacto />} />
           <Route path="/privacidad" element={<Privacidad />} />
           <Route path="/bitacora" element={<Bitacora />} />
-          
         </Routes>
 
         <WhatsAppBtn />
         <CookieBanner />
         <Footer />
-        
       </div>
     </BrowserRouter>
   );
