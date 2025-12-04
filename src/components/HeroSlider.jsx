@@ -91,6 +91,7 @@ const HeroSlider = () => {
         spaceBetween={0}
         slidesPerView={1}
         effect={'fade'}
+        fadeEffect={{ crossFade: true }}
         navigation={true}
         pagination={{ clickable: true }}
         autoplay={{ delay: 8000, disableOnInteraction: false }}
