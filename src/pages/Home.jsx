@@ -2,6 +2,7 @@ import React from 'react';
 import HeroSlider from '../components/HeroSlider';
 import CategoryNav from '../components/CategoryNav';
 import BentoGrid from '../components/BentoGrid'; 
+import InstagramFeed from '../components/InstagramFeed';
 
 function Home() {
   return (
@@ -14,6 +15,7 @@ function Home() {
 
       <main>
         <BentoGrid />
+        <InstagramFeed />
       </main>
     </>
   );

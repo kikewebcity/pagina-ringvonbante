@@ -1,0 +1,106 @@
+.insta-section {
+    background-color: #050505;
+    padding: 80px 20px;
+    border-top: 1px solid #222;
+}
+
+.insta-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.insta-icon-title {
+    color: #daa520;
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.insta-header h2 {
+    font-family: 'Impact', sans-serif;
+    color: #fff;
+    font-size: 2.5rem;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.insta-link {
+    color: #888;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 1rem;
+    text-decoration: underline;
+    transition: color 0.3s;
+}
+.insta-link:hover { color: #daa520; }
+
+/* --- GRID DE FOTOS --- */
+.insta-grid {
+    display: grid;
+    /* 4 columnas en escritorio */
+    grid-template-columns: repeat(4, 1fr); 
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 10px; /* Espacio pequeño entre fotos estilo IG */
+}
+
+.insta-item {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 300px; /* Altura cuadrada fija */
+    overflow: hidden;
+    border: 1px solid #222;
+}
+
+.insta-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Efecto Industrial: Blanco y negro por defecto */
+    filter: grayscale(100%); 
+    transition: transform 0.5s ease, filter 0.5s ease;
+}
+
+/* --- EFECTO HOVER --- */
+.insta-item:hover img {
+    transform: scale(1.1); /* Zoom */
+    filter: grayscale(0%); /* A color */
+}
+
+/* Icono superpuesto al pasar el mouse */
+.insta-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.insta-overlay svg {
+    color: #daa520;
+}
+
+.insta-item:hover .insta-overlay {
+    opacity: 1;
+}
+
+/* --- MÓVIL --- */
+@media (max-width: 768px) {
+    .insta-header h2 { font-size: 1.8rem; }
+    
+    .insta-grid {
+        /* 2 columnas en celular (tipo galería) */
+        grid-template-columns: repeat(2, 1fr);
+        height: auto;
+    }
+    
+    .insta-item {
+        height: 180px; /* Más pequeñas en móvil */
+    }
+}
