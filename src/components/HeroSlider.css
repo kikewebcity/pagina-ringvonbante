@@ -171,13 +171,11 @@
 @media (max-width: 768px) {
 
     .hero-slider-container {
-        height: auto; 
-        min-height: 100vh; /* Ocupa toda la pantalla del cel */
+      height: 100vh; 
+      min-height: 100vh;
+      height: 100dvh;
     }
-
-    /* --- ARREGLO DEL TÍTULO GIGANTE --- */
     .brand-name-slide {
-        /* Usamos VW para que se ajuste al ancho del cel sin salirse */
         font-size: 11vw; 
         letter-spacing: 1px;
         margin-bottom: 15px;
